@@ -3,6 +3,7 @@ package mobi.idappthat.notestodo.Application;
 import android.app.Application;
 import android.content.Intent;
 
+import com.orm.SugarApp;
 import com.parse.Parse;
 import com.parse.ParseUser;
 
@@ -11,7 +12,7 @@ import mobi.idappthat.notestodo.Activities.MainActivity;
 /**
  * Created by Cameron on 11/6/15.
  */
-public class BaseApplication extends Application {
+public class BaseApplication extends SugarApp {
 
     @Override
     public void onCreate() {

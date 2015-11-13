@@ -54,6 +54,7 @@ public class RegisterActivity extends AppCompatActivity {
                 else {
                     Intent i = new Intent(getBaseContext(), MainActivity.class);
                     i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    i.putExtra(MainActivity.FLASH_WELCOME, true);
                     startActivity(i);
                 }
             }
