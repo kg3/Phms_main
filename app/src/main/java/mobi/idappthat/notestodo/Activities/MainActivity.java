@@ -1,4 +1,4 @@
-package mobi.idappthat.notestodo;
+package mobi.idappthat.notestodo.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +11,8 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.parse.ParseUser;
+
+import mobi.idappthat.notestodo.R;
 
 /**
  * Created by Cameron on 11/6/15.

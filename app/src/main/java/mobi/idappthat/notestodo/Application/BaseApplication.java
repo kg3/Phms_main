@@ -1,10 +1,12 @@
-package mobi.idappthat.notestodo;
+package mobi.idappthat.notestodo.Application;
 
 import android.app.Application;
 import android.content.Intent;
 
 import com.parse.Parse;
 import com.parse.ParseUser;
+
+import mobi.idappthat.notestodo.Activities.MainActivity;
 
 /**
  * Created by Cameron on 11/6/15.
