@@ -9,7 +9,7 @@ import com.parse.ParseUser;
 import mobi.idappthat.phms_main.Activities.MenuMain;
 
 /**
- * Created by Cameron on 11/6/15.
+ *
  */
 public class BaseApplication extends SugarApp {
 
@@ -19,7 +19,8 @@ public class BaseApplication extends SugarApp {
 
         // Enable Local Datastore.
         Parse.enableLocalDatastore(this);
-        Parse.initialize(this, "IawLg6MMPCvFDPafIEyRD8PScVakg6UAfAzHxPti", "zVLI3xQp31IPs06RGZ2b077ubacH196BbmOP1feR");
+        //Parse.initialize(this, "IawLg6MMPCvFDPafIEyRD8PScVakg6UAfAzHxPti", "zVLI3xQp31IPs06RGZ2b077ubacH196BbmOP1feR"); //mobi
+        Parse.initialize(this, "anm3FekmjZLTvOaayxRcxpOtYUsSizliWTBQ9ize", "j2onD1jvcpC8TC42gWbrJsrrTPkc40uVFYjXGBNl");
 
         if(ParseUser.getCurrentUser() != null) {
             Intent i = new Intent(this, MenuMain.class);

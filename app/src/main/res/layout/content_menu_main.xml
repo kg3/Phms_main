@@ -12,4 +12,66 @@
     tools:context="mobi.idappthat.phms_main.Activities.MenuMain"
     tools:showIn="@layout/activity_menu_main">
 
+    <Button
+        android:id="@+id/diet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:text="Diet" />
+
+    <Button
+        android:id="@+id/notes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/diet"
+        android:text="Notes" />
+
+    <Button
+        android:id="@+id/reminders"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="Reminders" />
+
+    <Button
+        android:id="@+id/medicine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/diet"
+        android:layout_marginTop="49dp"
+        android:text="Medicine" />
+
+    <Button
+        android:id="@+id/communication"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/medicine"
+        android:layout_centerHorizontal="true"
+        android:text="Communication" />
+
+    <Button
+        android:id="@+id/search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/notes"
+        android:layout_alignStart="@+id/notes"
+        android:layout_alignTop="@+id/communication"
+        android:text="Search" />
+
+    <Button
+        android:id="@+id/vital_signs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/medicine"
+        android:layout_marginTop="47dp"
+        android:text="Vital Signs" />
 </RelativeLayout>

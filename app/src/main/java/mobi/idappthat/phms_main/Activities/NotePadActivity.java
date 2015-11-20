@@ -20,7 +20,7 @@ import mobi.idappthat.phms_main.Models.Note;
 import mobi.idappthat.phms_main.R;
 
 /**
- * Created by Cameron on 11/6/15.
+ *
  */
 public class NotePadActivity extends AppCompatActivity {
 
@@ -77,7 +77,7 @@ public class NotePadActivity extends AppCompatActivity {
     private void updateNotes() {
         List<Note> notes = Note.listAll(Note.class);
 
-        //Make sure thee are actulaly notes!
+        //Make sure thee are actually notes!
         if(notes.size() > 0) {
             tvNotes.setText("");
             for (Note n : notes) {
