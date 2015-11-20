@@ -1,4 +1,4 @@
-package mobi.idappthat.notestodo;
+package mobi.idappthat.phms_main;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

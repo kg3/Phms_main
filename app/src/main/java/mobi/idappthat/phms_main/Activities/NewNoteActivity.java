@@ -1,4 +1,4 @@
-package mobi.idappthat.notestodo.Activities;
+package mobi.idappthat.phms_main.Activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -6,8 +6,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 
-import mobi.idappthat.notestodo.Models.Note;
-import mobi.idappthat.notestodo.R;
+import mobi.idappthat.phms_main.Models.Note;
+import mobi.idappthat.phms_main.R;
 
 /**
  * Created by Cameron on 11/13/15.
@@ -33,7 +33,7 @@ public class NewNoteActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        setResult(MainActivity.ACTION_CANCEL);
+        setResult(NotePadActivity.ACTION_CANCEL);
         super.onBackPressed();
     }
 
@@ -65,7 +65,7 @@ public class NewNoteActivity extends AppCompatActivity {
         note.save();
 
         //Finish and let prev acitivty know we created
-        setResult(MainActivity.ACTION_CREATE);
+        setResult(NotePadActivity.ACTION_CREATE);
         finish();
     }
 }

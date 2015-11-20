@@ -1,4 +1,4 @@
-package mobi.idappthat.notestodo.Activities;
+package mobi.idappthat.phms_main.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,7 +12,7 @@ import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 
-import mobi.idappthat.notestodo.R;
+import mobi.idappthat.phms_main.R;
 
 /**
  * Created by Cameron on 11/6/15.
@@ -48,7 +48,7 @@ public class LoginActivity extends AppCompatActivity {
                         if (e != null) Snackbar.make(view, "Invalid Login", Snackbar.LENGTH_SHORT).show();
 
                         else{
-                            Intent i = new Intent(getBaseContext(), MainActivity.class);
+                            Intent i = new Intent(getBaseContext(), MenuMain.class);
                             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(i);
                         }

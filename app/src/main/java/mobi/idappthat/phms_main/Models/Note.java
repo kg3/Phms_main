@@ -1,4 +1,4 @@
-package mobi.idappthat.notestodo.Models;
+package mobi.idappthat.phms_main.Models;
 
 import com.orm.SugarRecord;
 

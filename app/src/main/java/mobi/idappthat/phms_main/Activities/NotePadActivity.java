@@ -1,4 +1,4 @@
-package mobi.idappthat.notestodo.Activities;
+package mobi.idappthat.phms_main.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,17 +14,15 @@ import android.widget.Toast;
 
 import com.parse.ParseUser;
 
-import org.w3c.dom.Text;
-
 import java.util.List;
 
-import mobi.idappthat.notestodo.Models.Note;
-import mobi.idappthat.notestodo.R;
+import mobi.idappthat.phms_main.Models.Note;
+import mobi.idappthat.phms_main.R;
 
 /**
  * Created by Cameron on 11/6/15.
  */
-public class MainActivity extends AppCompatActivity {
+public class NotePadActivity extends AppCompatActivity {
 
     public static final int CODE_NEW_NOTE = 0;
     public static final int CODE_NEW_TODO = 1;

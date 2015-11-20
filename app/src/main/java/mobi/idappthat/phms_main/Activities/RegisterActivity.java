@@ -1,4 +1,4 @@
-package mobi.idappthat.notestodo.Activities;
+package mobi.idappthat.phms_main.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,7 +12,7 @@ import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
 
-import mobi.idappthat.notestodo.R;
+import mobi.idappthat.phms_main.R;
 
 /**
  * Created by Cameron on 11/6/15.
@@ -52,9 +52,9 @@ public class RegisterActivity extends AppCompatActivity {
             public void done(ParseException e) {
                 if (e != null) Snackbar.make(view, doErrors(e), Snackbar.LENGTH_SHORT).show();
                 else {
-                    Intent i = new Intent(getBaseContext(), MainActivity.class);
+                    Intent i = new Intent(getBaseContext(), MenuMain.class);
                     i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    i.putExtra(MainActivity.FLASH_WELCOME, true);
+                    //  i.putExtra(MenuMain.FLASH_WELCOME, true);
                     startActivity(i);
                 }
             }
