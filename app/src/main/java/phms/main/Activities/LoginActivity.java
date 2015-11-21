@@ -15,7 +15,7 @@ import com.parse.ParseUser;
 import phms.main.R;
 
 /**
- * Created by Cameron on 11/6/15.
+ *
  */
 public class LoginActivity extends AppCompatActivity {
 

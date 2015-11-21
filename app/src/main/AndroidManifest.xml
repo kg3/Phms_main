@@ -14,8 +14,8 @@
         android:theme="@style/AppTheme">
         <meta-data
             android:name="DATABASE"
-            android:value="phms_main.db" />
-        // android:value="notestodo.db" />
+            android:value="notes.db" />
+        // android:value="notestodo.db"
         <meta-data
             android:name="VERSION"
             android:value="2" />
@@ -24,7 +24,7 @@
             android:value="true" />
         <meta-data
             android:name="DOMAIN_PACKAGE_NAME"
-            android:value="phmsMain.Models" />
+            android:value="phms.main.Models" />
 
         <activity
             android:name="phms.main.Activities.StartActivity"

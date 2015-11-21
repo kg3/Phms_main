@@ -10,7 +10,7 @@ import phms.main.Models.Note;
 import phms.main.R;
 
 /**
- * Created by Cameron on 11/13/15.
+ *
  */
 public class NewNoteActivity extends AppCompatActivity {
 
@@ -55,7 +55,7 @@ public class NewNoteActivity extends AppCompatActivity {
         //Got the current time
         long time = System.currentTimeMillis();
 
-        //Make a new note + sve
+        //Make a new note + save
         Note note = new Note(
                 etTitle.getText().toString(),
                 etNote.getText().toString(),
@@ -64,7 +64,7 @@ public class NewNoteActivity extends AppCompatActivity {
 
         note.save();
 
-        //Finish and let prev acitivty know we created
+        //Finish and let previous activity know we created
         setResult(NotePadActivity.ACTION_CREATE);
         finish();
     }

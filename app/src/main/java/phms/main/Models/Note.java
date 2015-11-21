@@ -3,8 +3,9 @@ package phms.main.Models;
 import com.orm.SugarRecord;
 
 /**
- * nlm (- -) mln
+ *
  */
+
 public class Note extends SugarRecord<Note> {
 
     String title, note;
