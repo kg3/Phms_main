@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="phms.main.Activities.SearchActivity">
+    tools:context="phms.main.Activities.RemindersActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -21,7 +21,7 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_search" />
+    <include layout="@layout/content_reminders" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"

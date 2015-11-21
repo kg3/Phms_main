@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="mobi.idappthat.phms_main">
+    package="phms.main">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-        android:name=".Application.BaseApplication"
+        android:name="phms.main.Application.BaseApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -14,9 +14,8 @@
         android:theme="@style/AppTheme">
         <meta-data
             android:name="DATABASE"
-            android:value="notestodo.db" />
+            android:value="phms_main.db" />
         // android:value="notestodo.db" />
-
         <meta-data
             android:name="VERSION"
             android:value="2" />
@@ -25,10 +24,10 @@
             android:value="true" />
         <meta-data
             android:name="DOMAIN_PACKAGE_NAME"
-            android:value="mobi.idappthat.phms_main.Models" />
+            android:value="phmsMain.Models" />
 
         <activity
-            android:name=".Activities.StartActivity"
+            android:name="phms.main.Activities.StartActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -38,42 +37,45 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Activities.RegisterActivity"
-            android:parentActivityName=".Activities.StartActivity" />
+            android:name="phms.main.Activities.RegisterActivity"
+            android:parentActivityName="phms.main.Activities.StartActivity" />
         <activity
-            android:name=".Activities.LoginActivity"
-            android:parentActivityName=".Activities.StartActivity" />
+            android:name="phms.main.Activities.LoginActivity"
+            android:parentActivityName="phms.main.Activities.StartActivity" />
         <activity
-            android:name=".Activities.NotePadActivity"
+            android:name="phms.main.Activities.NotePadActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Activities.NewNoteActivity"
-            android:parentActivityName=".Activities.NotePadActivity" />
+            android:name="phms.main.Activities.NewNoteActivity"
+            android:parentActivityName="phms.main.Activities.NotePadActivity" />
         <activity
-            android:name=".Activities.CommunicationActivity"
+            android:name="phms.main.Activities.CommunicationActivity"
             android:label="@string/title_activity_communication"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Activities.DietActivity"
+            android:name="phms.main.Activities.DietActivity"
             android:label="@string/title_activity_diet"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Activities.MedicineActivity"
+            android:name="phms.main.Activities.MedicineActivity"
             android:label="@string/title_activity_medicine"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Activities.SearchActivity"
+            android:name="phms.main.Activities.SearchActivity"
             android:label="@string/title_activity_search"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Activities.MenuMain"
+            android:name="phms.main.Activities.MenuMain"
             android:label="@string/title_activity_MainMenu"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="phms.main.Activities.VitalsActivity"
+            android:label="@string/title_activity_vitals"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="phms.main.Activities.RemindersActivity"
+            android:label="@string/title_activity_reminders"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-        <!-- ATTENTION: This was auto-generated to add Google Play services to your project for
-             App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
     </application>
 
 </manifest>

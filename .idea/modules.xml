@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/NotesTodo.iml" filepath="$PROJECT_DIR$/NotesTodo.iml" />
       <module fileurl="file://$PROJECT_DIR$/Phms_main.iml" filepath="$PROJECT_DIR$/Phms_main.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>

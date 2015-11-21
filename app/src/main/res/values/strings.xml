@@ -6,4 +6,6 @@
     <string name="title_activity_medicine">MedicineActivity</string>
     <string name="title_activity_search">SearchActivity</string>
     <string name="title_activity_MainMenu">MainMenu</string>
+    <string name="title_activity_vitals">VitalsActivity</string>
+    <string name="title_activity_reminders">RemindersActivity</string>
 </resources>
