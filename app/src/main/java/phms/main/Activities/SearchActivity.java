@@ -11,6 +11,12 @@ import phms.main.R;
 
 public class SearchActivity extends AppCompatActivity {
 
+    /*
+        - search term
+        - category
+        - type {local, internet} // we don't need to get to internet if it's too much
+     */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

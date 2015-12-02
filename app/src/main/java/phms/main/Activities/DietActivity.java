@@ -11,6 +11,12 @@ import phms.main.R;
 
 public class DietActivity extends AppCompatActivity {
 
+    /*
+        - date
+        - calorie count
+        - weight
+     */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
