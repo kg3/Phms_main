@@ -228,12 +228,14 @@
         </android.support.design.widget.TextInputLayout>
 
         <Button
+            android:background="@drawable/button_3d"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Register"
             android:id="@+id/btnRegister"
             android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            style = "@style/button_text"/>
 
 
     </LinearLayout>

@@ -4,12 +4,14 @@
     android:layout_height="match_parent">
 
     <Button
+        android:background="@drawable/button_3d"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Login"
         android:id="@+id/btnLogin"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        style = "@style/button_text"/>
 
     <LinearLayout
         android:orientation="vertical"
