@@ -11,6 +11,12 @@ import phms.main.R;
 
 public class VitalsActivity extends AppCompatActivity {
 
+    /*
+        - blood pressure
+        - glucode level
+        - cholesterol level
+     */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

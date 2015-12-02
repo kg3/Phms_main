@@ -15,7 +15,6 @@
         <meta-data
             android:name="DATABASE"
             android:value="notes.db" />
-        // android:value="notestodo.db"
         <meta-data
             android:name="VERSION"
             android:value="2" />
