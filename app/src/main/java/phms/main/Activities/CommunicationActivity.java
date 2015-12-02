@@ -11,6 +11,11 @@ import phms.main.R;
 
 public class CommunicationActivity extends AppCompatActivity {
 
+    /*
+        - SMS
+        - Email
+        - Phone Number
+     */
 
 
     @Override

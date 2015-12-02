@@ -11,6 +11,18 @@ import phms.main.R;
 
 public class MedicineActivity extends AppCompatActivity {
 
+    /*
+       - medication
+       - potential conflicting medication
+       - amount of medication
+       - quantity of medication
+       - time/frequency to take medication
+
+       # Monitoring
+       - medication taken {yes,no}
+       - medication conflicts
+
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
