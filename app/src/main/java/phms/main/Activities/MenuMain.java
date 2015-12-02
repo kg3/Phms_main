@@ -26,14 +26,7 @@ public class MenuMain extends AppCompatActivity implements View.OnClickListener 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
 
 
         Button diet = (Button) findViewById(R.id.diet);
@@ -51,6 +44,15 @@ public class MenuMain extends AppCompatActivity implements View.OnClickListener 
         search.setOnClickListener(this);
         vital_signs.setOnClickListener(this);
         reminders.setOnClickListener(this);
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent searchIntent = new Intent(getBaseContext(), SearchActivity.class);
+                startActivity(searchIntent);
+            }
+        });
     }
 
 
