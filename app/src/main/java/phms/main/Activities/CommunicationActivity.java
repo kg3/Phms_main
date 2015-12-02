@@ -12,7 +12,7 @@ import phms.main.R;
 public class CommunicationActivity extends AppCompatActivity {
 
 
-    //wakkkkaaaaaaa
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
