@@ -6,16 +6,17 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
 import phms.main.R;
 
-public class MedicineActivity extends AppCompatActivity {
+public class MedicineActivity extends AppCompatActivity implements View.OnClickListener {
 
     /*
        - medication
-       - potential conflicting medication
+       - potential conflicting medication // NEED TO TALK ABOUT AGAIN!
        - amount of medication
-       - quantity of medication
        - time/frequency to take medication
 
        # Monitoring
@@ -23,6 +24,11 @@ public class MedicineActivity extends AppCompatActivity {
        - medication conflicts
 
      */
+
+    EditText etMedication, etAmount,etFrequency;
+
+    Button bMonitoring;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +44,22 @@ public class MedicineActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        etMedication = (EditText)findViewById(R.id.etMedication);
+        etAmount = (EditText)findViewById(R.id.etAmount);
+        etFrequency = (EditText)findViewById(R.id.etFrequency);
+
+
+        bMonitoring = (Button)findViewById(R.id.bMonitoring);
+        bMonitoring.setOnClickListener(this);
     }
 
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.bMonitoring:
+
+                break;
+        }
+    }
 }

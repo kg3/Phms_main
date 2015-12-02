@@ -6,11 +6,14 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.EditText;
 
 import phms.main.R;
 
 public class RemindersActivity extends AppCompatActivity {
 
+
+    EditText etReminder, etDate, etTime;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +29,10 @@ public class RemindersActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        etReminder = (EditText)findViewById(R.id.etReminder);
+        etDate = (EditText)findViewById(R.id.etDate);
+        etTime = (EditText)findViewById(R.id.etTime);
     }
 
 }

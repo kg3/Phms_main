@@ -6,10 +6,12 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
 import phms.main.R;
 
-public class CommunicationActivity extends AppCompatActivity {
+public class CommunicationActivity extends AppCompatActivity{
 
     /*
         - SMS
@@ -17,6 +19,8 @@ public class CommunicationActivity extends AppCompatActivity {
         - Phone Number
      */
 
+
+    EditText etEmail, etCall, etText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +37,14 @@ public class CommunicationActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+
+        etText = (EditText)findViewById(R.id.etText);
+        etEmail = (EditText)findViewById(R.id.etEmail);
+        etCall = (EditText)findViewById(R.id.etCall);
+
+
     }
+
 
 }
