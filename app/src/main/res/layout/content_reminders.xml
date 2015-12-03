@@ -7,6 +7,10 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin">
 
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        >
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
@@ -16,32 +20,40 @@
     android:layout_centerHorizontal="true"
     android:padding="40dp">
 
-
-<EditText
+    <EditText
         android:id="@+id/etReminder"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:hint="Set a reminder"
-        android:layout_margin = "5dp"
-        android:textSize="20sp"/>
-
-
-    <EditText
-        android:id="@+id/etDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Set date for reminder"
         android:layout_margin = "5dp"
         android:textSize="20sp"/>
 
-    <EditText
-        android:id="@+id/etTime"
+
+    <TimePicker
+        android:id="@+id/pickertime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <DatePicker
+        android:id="@+id/pickerdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+    <Button
+        android:id="@+id/readpicker"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Set time for reminder"
-        android:layout_margin = "5dp"
-        android:textSize="20sp"/>
+        android:text="Set Reminder"/>
+
+    <TextView
+        android:id="@+id/tList"
+        android:text="List of reminders"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
 
 
 </LinearLayout>
+    </ScrollView>
 </RelativeLayout>
