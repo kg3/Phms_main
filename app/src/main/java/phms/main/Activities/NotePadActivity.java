@@ -100,6 +100,8 @@ public class NotePadActivity extends AppCompatActivity {
 
     private void loadFromParse() {
 
+        /* query the database */
+
         ParseQuery<ParseObject> query = ParseQuery.getQuery("note");
         query.whereEqualTo("author", ParseUser.getCurrentUser());
 
