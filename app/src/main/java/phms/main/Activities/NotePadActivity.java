@@ -10,9 +10,14 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.parse.FindCallback;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+import com.parse.ParseUser;
+
 import java.util.List;
 
-import phms.main.Models.Note;
 import phms.main.R;
 
 /**
@@ -28,7 +33,6 @@ public class NotePadActivity extends AppCompatActivity {
 
     public static final String FLASH_WELCOME = "flash_welcome";
 
-
     TextView tvNotes;
 
     @Override
@@ -41,7 +45,9 @@ public class NotePadActivity extends AppCompatActivity {
 
         //Inflate widget and update with notes
         tvNotes = (TextView) findViewById(R.id.tvNotes);
-        updateNotes();
+        //updateNotes();
+
+        loadFromParse();
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -71,15 +77,71 @@ public class NotePadActivity extends AppCompatActivity {
     }
 
     private void updateNotes() {
-        List<Note> notes = Note.listAll(Note.class);
 
-        //Make sure thee are actually notes!
-        if (notes.size() > 0) {
-            tvNotes.setText("");
-            for (Note n : notes) {
-                tvNotes.append("- " + n.getTitle() + " - " + n.getNote() + "\n\n");
+        loadFromParse();
+
+//        ParseObject allnotes = new ParseObject("notes");
+//        try {
+//            allnotes.fetch();
+//        } catch (ParseException e) {
+//            e.printStackTrace();
+//        }
+
+//        List<Note> notes = Note.listAll(Note.class);
+//
+//        //Make sure thee are actually notes!
+//        if (notes.size() > 0) {
+//            tvNotes.setText("");
+//            for (Note n : notes) {
+//                tvNotes.append("- " + n.getTitle() + " - " + n.getNote() + "\n\n");
+//            }
+//        }
+    }
+
+    private void loadFromParse() {
+
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("note");
+        query.whereEqualTo("author", ParseUser.getCurrentUser());
+
+        query.findInBackground(new FindCallback<ParseObject>() {
+            public void done(List<ParseObject> allNotes, ParseException e) {
+                // commentList now has the comments for myPost
+                if (allNotes.size() > 0) {
+                    tvNotes.setText("");
+                    for (ParseObject _note : allNotes) {
+                        tvNotes.append("* " + _note.get("title").toString() + " # " + _note.get("note").toString() + "\n\n");
+                    }
+                }
             }
-        }
+        });
+
+
+//        ParseQuery<ParseObject> query = note_parse.getQuery();
+//        query.whereEqualTo("author", ParseUser.getCurrentUser());
+//        query.findInBackground(new FindCallback<note_parse>() {
+//            public void done(List<note_parse> allnotes, ParseException e) {
+//                if (e == null) {
+//                    ParseObject.pinAllInBackground((List<note_parse>) allnotes,
+//                            new SaveCallback() {
+//                                public void done(ParseException e) {
+//                                    if (e == null) {
+//                                        if (!isFinishing()) {
+//                                           // allnotes.loadObjects();
+//                                        }
+//                                    } else {
+//                                        Log.i("TodoListActivity",
+//                                                "Error pinning todos: "
+//                                                        + e.getMessage());
+//                                    }
+//                                }
+//                            });
+//                } else {
+//                    Log.i("TodoListActivity",
+//                            "loadFromParse: Error finding pinned todos: "
+//                                    + e.getMessage());
+//                }
+//            }
+//        });
     }
 
     @Override

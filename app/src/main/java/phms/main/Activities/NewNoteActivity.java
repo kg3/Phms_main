@@ -6,7 +6,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 
-import phms.main.Models.Note;
+import com.parse.ParseObject;
+import com.parse.ParseUser;
+
 import phms.main.R;
 
 /**
@@ -52,17 +54,25 @@ public class NewNoteActivity extends AppCompatActivity {
 
 
     private void createNote() {
-        //Got the current time
-        long time = System.currentTimeMillis();
 
-        //Make a new note + save
-        Note note = new Note(
-                etTitle.getText().toString(),
-                etNote.getText().toString(),
-                time
-        );
+        ParseObject note = new ParseObject("note");
 
-        note.save();
+        note.put("author", ParseUser.getCurrentUser());
+        note.put("title", etTitle.getText().toString());
+        note.put("note", etNote.getText().toString());
+
+        note.saveInBackground();
+//        //Got the current time
+//        long time = System.currentTimeMillis();
+//
+//        //Make a new note + save
+//        Note note = new Note(
+//                etTitle.getText().toString(),
+//                etNote.getText().toString(),
+//                time
+//        );
+//
+//        note.save();
 
         //Finish and let previous activity know we created
         setResult(NotePadActivity.ACTION_CREATE);
