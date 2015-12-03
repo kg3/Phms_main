@@ -57,6 +57,7 @@ public class NewNoteActivity extends AppCompatActivity {
 
         /* write to the database */
         /* anything outside of registration always needs an author */
+
         ParseObject note = new ParseObject("note");
 
         note.put("author", ParseUser.getCurrentUser());

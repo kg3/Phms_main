@@ -108,6 +108,7 @@ public class NotePadActivity extends AppCompatActivity {
         query.findInBackground(new FindCallback<ParseObject>() {
             public void done(List<ParseObject> allNotes, ParseException e) {
                 // commentList now has the comments for myPost
+
                 if (allNotes.size() > 0) {
                     tvNotes.setText("");
                     for (ParseObject _note : allNotes) {
