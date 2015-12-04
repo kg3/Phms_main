@@ -105,6 +105,7 @@ public class NotePadActivity extends AppCompatActivity {
         ParseQuery<ParseObject> query = ParseQuery.getQuery("note");
         query.whereEqualTo("author", ParseUser.getCurrentUser());
 
+        query.orderByDescending("createdAt");
         query.findInBackground(new FindCallback<ParseObject>() {
             public void done(List<ParseObject> allNotes, ParseException e) {
                 // commentList now has the comments for myPost
