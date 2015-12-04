@@ -28,8 +28,8 @@
         android:background="@android:drawable/btn_dropdown"
         android:spinnerMode="dropdown"
         android:layout_below="@+id/etSearch"
-        android:layout_alignRight="@+id/etSearch"
-        android:layout_alignEnd="@+id/etSearch" />
+        android:layout_alignLeft="@+id/searchButton"
+        android:layout_alignStart="@+id/searchButton" />
 
     <Button
         android:id="@+id/searchButton"
@@ -40,4 +40,13 @@
         android:layout_alignLeft="@+id/etSearch"
         android:layout_alignStart="@+id/etSearch" />
 
+    <TextView
+        android:id="@+id/tList"
+        android:text="Search Results"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/searchButton"
+        android:layout_alignLeft="@+id/searchButton"
+        android:layout_alignStart="@+id/searchButton" />
 </RelativeLayout>
