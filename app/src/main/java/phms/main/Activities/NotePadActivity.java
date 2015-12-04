@@ -7,6 +7,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,6 +35,7 @@ public class NotePadActivity extends AppCompatActivity {
     public static final String FLASH_WELCOME = "flash_welcome";
 
     TextView tvNotes;
+    ListView lvNoteList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +47,8 @@ public class NotePadActivity extends AppCompatActivity {
 
         //Inflate widget and update with notes
         tvNotes = (TextView) findViewById(R.id.tvNotes);
+
+        lvNoteList = (ListView) findViewById(R.id.note_list_view);
         //updateNotes();
 
         loadFromParse();
@@ -105,6 +109,8 @@ public class NotePadActivity extends AppCompatActivity {
         ParseQuery<ParseObject> query = ParseQuery.getQuery("note");
         query.whereEqualTo("author", ParseUser.getCurrentUser());
 
+        /* update your code with this line */
+        query.orderByDescending("createdAt");
         query.findInBackground(new FindCallback<ParseObject>() {
             public void done(List<ParseObject> allNotes, ParseException e) {
                 // commentList now has the comments for myPost
@@ -112,6 +118,8 @@ public class NotePadActivity extends AppCompatActivity {
                 if (allNotes.size() > 0) {
                     tvNotes.setText("");
                     for (ParseObject _note : allNotes) {
+
+
                         tvNotes.append("* " + _note.get("title").toString() + " # " + _note.get("note").toString() + "\n\n");
                     }
                 }
