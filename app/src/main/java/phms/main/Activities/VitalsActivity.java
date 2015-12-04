@@ -67,6 +67,7 @@ public class VitalsActivity extends AppCompatActivity implements View.OnClickLis
             public void done(List<ParseObject> allVitals, ParseException e) {
 
 
+
                 if (allVitals.size() > 0) {
                     tList.setText("");
                     for (ParseObject vitals : allVitals) {
