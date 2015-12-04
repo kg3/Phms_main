@@ -73,6 +73,14 @@ public class CommunicationActivity extends AppCompatActivity implements View.OnC
         switch (view.getId()){
             case R.id.bEmail:
 
+                String to = etEmail.getText().toString();
+                Intent email = new Intent(Intent.ACTION_SEND);
+                email.putExtra(Intent.EXTRA_EMAIL  , new String[]{"Recipient"});
+                email.putExtra(Intent.EXTRA_SUBJECT, "subject");
+                email.putExtra(Intent.EXTRA_TEXT   , "Message Body");
+                email.setType("message/rfc822");
+                startActivity(Intent.createChooser(email, to));
+
                 break;
 
             case R.id.bCall:
