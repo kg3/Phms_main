@@ -19,39 +19,49 @@
     android:padding="40dp">
 
 
-
-
-
     <EditText
         android:layout_marginTop="@dimen/abc_action_bar_icon_vertical_padding_material"
         android:id="@+id/etCall"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Call"
+        android:hint="Enter number"
         android:layout_margin = "5dp"
         android:textSize="20sp" />
 
-
-
-    <EditText
-        android:layout_marginTop="@dimen/abc_action_bar_icon_vertical_padding_material"
-        android:id="@+id/etText"
+    <Button
+        android:id="@+id/bCall"
+        android:text="Call"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Text"
         android:layout_margin = "5dp"
         android:textSize="20sp"/>
 
+
+    <Button
+        android:id="@+id/bText"
+        android:text="Send Text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin = "5dp"
+        android:textSize="20sp"/>
 
     <EditText
         android:layout_marginTop="@dimen/abc_action_bar_icon_vertical_padding_material"
         android:id="@+id/etEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Email"
+        android:hint="Enter email address"
         android:layout_margin = "5dp"
         android:textSize="20sp"/>
 
+
+    <Button
+        android:id="@+id/bEmail"
+        android:text="Send Email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin = "5dp"
+        android:textSize="20sp"/>
 
 
 

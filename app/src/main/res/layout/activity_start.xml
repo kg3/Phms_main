@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".StartActivity">
 
+    <!--Kurt asked me to put notes in here-->
     <ImageView
         android:src="@drawable/logo"
         android:layout_width="wrap_content"

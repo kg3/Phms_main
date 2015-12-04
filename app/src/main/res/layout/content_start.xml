@@ -10,6 +10,7 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/activity_start" tools:context=".StartActivity">
 
+    <!--Kurt asked me to put notes in here-->
     <TextView
         android:id="@+id/tvNotes"
         android:text="No notes"

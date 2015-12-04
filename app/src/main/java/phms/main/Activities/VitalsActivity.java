@@ -19,6 +19,7 @@ public class VitalsActivity extends AppCompatActivity {
      */
 
     EditText etBloodPressure, etGlucose, etCholesterol;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
