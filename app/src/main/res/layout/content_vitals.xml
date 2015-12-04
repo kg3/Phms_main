@@ -7,6 +7,11 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin">
 
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        >
+
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
@@ -42,6 +47,18 @@
         android:hint="Enter cholesterol level"
         android:layout_margin = "5dp"
         android:textSize="20sp"/>
+    <Button
+        android:id="@+id/bVital"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Submit"/>
+
+    <TextView
+        android:id="@+id/tList"
+        android:text="List of vitals"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>
+    </ScrollView>
 </RelativeLayout>
