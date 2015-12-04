@@ -1,21 +1,41 @@
 package phms.main.Activities;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+//import android.support.design.widget.FloatingActionButton;
+//import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Button;
+import android.widget.Spinner;
+import android.widget.ArrayAdapter;
+
+import com.parse.FindCallback;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+import com.parse.ParseUser;
+
+import java.util.List;
+
 import phms.main.R;
 
-public class SearchActivity extends AppCompatActivity {
+public class SearchActivity extends AppCompatActivity implements View.OnClickListener  {
 
     /*
         - search term
         - category
         - type {local, internet} // we don't need to get to internet if it's too much
      */
+    EditText etSearch;
+    TextView tList;
+    Button searchButton;
+    String category;
+    Spinner dropdown;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +44,19 @@ public class SearchActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        etSearch = (EditText) findViewById(R.id.etSearch);
+
+        searchButton = (Button) findViewById(R.id.searchButton);
+        searchButton.setOnClickListener(this);
+        tList = (TextView) findViewById(R.id.tList);
+
+        dropdown = (Spinner)findViewById(R.id.spinner1);
+        String[] items = new String[]{"All", "Diet", "Medicine", "Notes", "Reminders"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
+        dropdown.setAdapter(adapter);
+
+
+        /*
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,6 +65,48 @@ public class SearchActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+        */
     }
 
+    @Override
+    public void onClick(View v) {
+        category = dropdown.getItemAtPosition(dropdown.getSelectedItemPosition()).toString();
+        tList.setText("");
+        switch (v.getId()) {
+            case R.id.searchButton:
+//                if(category.equals("All") || category.equals("Diet")){
+//                    //ParseQuery<ParseObject> query = ParseQuery.getQuery("diet");
+//                    //query.whereEqualTo("author", ParseUser.getCurrentUser());
+//                }
+//
+//                if(category.equals("All") || category.equals("Medicine")){
+//
+//                }
+
+                if(category.equals("All") || category.equals("Notes")){
+                    ParseQuery<ParseObject> query = ParseQuery.getQuery("note");
+                    query.whereEqualTo("author", ParseUser.getCurrentUser());
+                }
+
+                if(category.equals("All") || category.equals("Reminders")){
+                    ParseQuery<ParseObject> query = ParseQuery.getQuery("reminder");
+                    query.whereEqualTo("author", ParseUser.getCurrentUser());
+                    query.orderByDescending("createdAt");
+                    query.whereContains("eventsTitle", etSearch.getText().toString());
+                    query.findInBackground(new FindCallback<ParseObject>() {
+                        public void done(List<ParseObject> allReminders, ParseException e) {
+                            if (allReminders.size() > 0) {
+
+
+                                for (ParseObject reminder : allReminders) {
+                                    tList.append(reminder.get("eventsTitle").toString() + " " + reminder.get("year") + " " + reminder.get("month") + " " + reminder.get("day") + " " + reminder.get("hour") + " " + reminder.get("minute") + " " + "\n\n");
+                                }
+                            }
+                        }
+                    });
+                }
+
+                break;
+        }
+    }
 }

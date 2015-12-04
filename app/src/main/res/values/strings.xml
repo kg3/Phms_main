@@ -8,4 +8,5 @@
     <string name="title_activity_MainMenu">MainMenu</string>
     <string name="title_activity_vitals">VitalsActivity</string>
     <string name="title_activity_reminders">RemindersActivity</string>
+    <string name="title_activity_notepad">NotePad</string>
 </resources>
