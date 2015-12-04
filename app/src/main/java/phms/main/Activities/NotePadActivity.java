@@ -76,27 +76,6 @@ public class NotePadActivity extends AppCompatActivity {
         }
     }
 
-    private void updateNotes() {
-
-        loadFromParse();
-
-//        ParseObject allnotes = new ParseObject("notes");
-//        try {
-//            allnotes.fetch();
-//        } catch (ParseException e) {
-//            e.printStackTrace();
-//        }
-
-//        List<Note> notes = Note.listAll(Note.class);
-//
-//        //Make sure thee are actually notes!
-//        if (notes.size() > 0) {
-//            tvNotes.setText("");
-//            for (Note n : notes) {
-//                tvNotes.append("- " + n.getTitle() + " - " + n.getNote() + "\n\n");
-//            }
-//        }
-    }
 
     private void loadFromParse() {
 
@@ -157,7 +136,7 @@ public class NotePadActivity extends AppCompatActivity {
             //Note was created! update it!
             if (resultCode == ACTION_CREATE) {
                 Toast.makeText(getBaseContext(), "Cool yo!", Toast.LENGTH_SHORT).show();
-                updateNotes();
+                loadFromParse();
             }
 
             //Note was canceled
