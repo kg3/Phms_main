@@ -65,17 +65,6 @@ public class NewNoteActivity extends AppCompatActivity {
         note.put("note", etNote.getText().toString());
 
         note.saveInBackground();
-//        //Got the current time
-//        long time = System.currentTimeMillis();
-//
-//        //Make a new note + save
-//        Note note = new Note(
-//                etTitle.getText().toString(),
-//                etNote.getText().toString(),
-//                time
-//        );
-//
-//        note.save();
 
         //Finish and let previous activity know we created
         setResult(NotePadActivity.ACTION_CREATE);
