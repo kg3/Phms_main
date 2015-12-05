@@ -2,6 +2,8 @@ package phms.main.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.method.ScrollingMovementMethod;
@@ -9,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -20,13 +23,10 @@ import java.util.List;
 
 import phms.main.R;
 
-public class MedicineActivity extends AppCompatActivity implements View.OnClickListener {
+public class MedicineActivity extends AppCompatActivity {
 
-
-    EditText etMedication, etAmount, etFrequency, etMedicationConflict;
-    Button SavingMedication;
-    Button SaveAndReminder;
     TextView tvMedicines;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,64 +34,25 @@ public class MedicineActivity extends AppCompatActivity implements View.OnClickL
         setContentView(R.layout.activity_medicine);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        loadFromParse();
 
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
-        etMedication = (EditText) findViewById(R.id.etMedication);
-        etAmount = (EditText) findViewById(R.id.etAmount);
-        etFrequency = (EditText) findViewById(R.id.etFrequency);
-        etMedicationConflict = (EditText) findViewById(R.id.etMedicationConflict);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getBaseContext(), "Lets add a Medicine", Toast.LENGTH_SHORT).show();
+                Intent NewMedIntent = new Intent(getBaseContext(), NewMedicine.class);
+                startActivity(NewMedIntent);
 
-        SavingMedication = (Button) findViewById(R.id.SavingMedication);
-        SaveAndReminder = (Button) findViewById(R.id.SaveAndReminder);
+
+            }
+        });
+
 
         tvMedicines = (TextView) findViewById(R.id.tvMedicines);
 
         loadFromParse();
 
-        SaveAndReminder.setOnClickListener(this);
-        SavingMedication.setOnClickListener(this);
-        tvMedicines.setMovementMethod(new ScrollingMovementMethod());
-    }
-
-    @Override
-    public void onClick(View view) {
-
-        switch (view.getId()) {
-            case R.id.SavingMedication:
-
-                saveToParse();
-
-                loadFromParse();
-
-                break;
-            case R.id.SaveAndReminder:
-                saveToParse();
-
-                Intent remindersIntent = new Intent(this, RemindersActivity.class);
-                startActivity(remindersIntent);
-
-                break;
-
-        }
-    }
-
-    private void saveToParse() {
-        ParseObject MedicationEntry = new ParseObject("medications");
-
-        MedicationEntry.put("author", ParseUser.getCurrentUser());
-        MedicationEntry.put("medicationName", etMedication.getText().toString());
-        MedicationEntry.put("amount", etAmount.getText().toString());
-        MedicationEntry.put("frequency", etFrequency.getText().toString());
-        MedicationEntry.put("medicineConflicts", etMedicationConflict.getText().toString());
-
-        MedicationEntry.saveInBackground();
     }
 
 
@@ -113,13 +74,17 @@ public class MedicineActivity extends AppCompatActivity implements View.OnClickL
                     for (ParseObject _medication : allMedication) {
 
 
-                        tvMedicines.append("* " + _medication.get("medicationName").toString() + " # " + _medication.get("amount").toString()
-                                + " - " + _medication.get("frequency") + " - " + _medication.get("medicationConflicts") + "\n\n");
+                        tvMedicines.append("Medicine:" + _medication.get("medicationName").toString() + "\nAmount: " + _medication.get("amount").toString()
+                                + "\nFrequency: " + _medication.get("frequency") + "\nConflicts: " + _medication.get("medicineConflicts") + "\n\n");
                     }
+                } else {
+//                    System.out.print("Currently No medications being taken\n");
+                    tvMedicines.append("Currently No medications being taken\n");
                 }
             }
         });
     }
+
 
 }
 
