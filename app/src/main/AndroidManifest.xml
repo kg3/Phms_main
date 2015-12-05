@@ -6,7 +6,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-        android:name="phms.main.Application.BaseApplication"
+        android:name=".Application.BaseApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -26,7 +26,7 @@
             android:value="phms.main.Models" />
 
         <activity
-            android:name="phms.main.Activities.StartActivity"
+            android:name=".Activities.StartActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -36,44 +36,48 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="phms.main.Activities.RegisterActivity"
-            android:parentActivityName="phms.main.Activities.StartActivity" />
+            android:name=".Activities.RegisterActivity"
+            android:parentActivityName=".Activities.StartActivity" />
         <activity
-            android:name="phms.main.Activities.LoginActivity"
-            android:parentActivityName="phms.main.Activities.StartActivity" />
+            android:name=".Activities.LoginActivity"
+            android:parentActivityName=".Activities.StartActivity" />
         <activity
-            android:name="phms.main.Activities.NotePadActivity"
+            android:name=".Activities.NotePadActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="phms.main.Activities.NewNoteActivity"
-            android:parentActivityName="phms.main.Activities.NotePadActivity" />
+            android:name=".Activities.NewNoteActivity"
+            android:parentActivityName=".Activities.NotePadActivity" />
         <activity
-            android:name="phms.main.Activities.CommunicationActivity"
+            android:name=".Activities.CommunicationActivity"
             android:label="@string/title_activity_communication"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="phms.main.Activities.DietActivity"
+            android:name=".Activities.DietActivity"
             android:label="@string/title_activity_diet"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="phms.main.Activities.MedicineActivity"
+            android:name=".Activities.MedicineActivity"
             android:label="@string/title_activity_medicine"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="phms.main.Activities.SearchActivity"
+            android:name=".Activities.SearchActivity"
             android:label="@string/title_activity_search"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="phms.main.Activities.MenuMain"
+            android:name=".Activities.MenuMain"
             android:label="@string/title_activity_MainMenu"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="phms.main.Activities.VitalsActivity"
+            android:name=".Activities.VitalsActivity"
             android:label="@string/title_activity_vitals"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="phms.main.Activities.RemindersActivity"
+            android:name=".Activities.RemindersActivity"
             android:label="@string/title_activity_reminders"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Activities.NewMedicine"
+            android:label="@string/title_activity_new_medicine"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

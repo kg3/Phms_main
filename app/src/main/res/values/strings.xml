@@ -9,4 +9,6 @@
     <string name="title_activity_vitals">VitalsActivity</string>
     <string name="title_activity_reminders">RemindersActivity</string>
     <string name="title_activity_notepad">NotePad</string>
+    <string name="title_activity_new_medicine">NewMedicine</string>
+
 </resources>
