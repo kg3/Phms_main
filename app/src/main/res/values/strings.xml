@@ -3,12 +3,12 @@
     <string name="action_settings">General</string>
     <string name="title_activity_communication">CommunicationActivity</string>
     <string name="title_activity_diet">DietActivity</string>
-    <string name="title_activity_medicine">MedicineActivity</string>
+    <string name="title_activity_medicine">Medicines</string>
     <string name="title_activity_search">SearchActivity</string>
     <string name="title_activity_MainMenu">MainMenu</string>
     <string name="title_activity_vitals">VitalsActivity</string>
     <string name="title_activity_reminders">RemindersActivity</string>
     <string name="title_activity_notepad">NotePad</string>
-    <string name="title_activity_new_medicine">NewMedicine</string>
+    <string name="title_activity_new_medicine">Add Medicine</string>
 
 </resources>

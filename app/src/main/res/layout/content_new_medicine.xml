@@ -51,13 +51,15 @@
             android:textSize="20sp"/>
 
         <Button
+            android:background="@drawable/button_3d"
             android:id="@+id/SavingMedication"
             android:text="Save Medication"
             android:layout_margin = "5dp"
             android:textStyle="bold"
             android:textSize="15sp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            style = "@style/button_text"/>
 
         <TextView
             android:layout_width="259dp"
@@ -66,13 +68,15 @@
             android:textAlignment="center" />
 
         <Button
+            android:background="@drawable/button_3d"
             android:id="@+id/SaveAndReminder"
             android:text="Save and Set a Reminder"
             android:layout_margin = "5dp"
             android:textStyle="bold"
             android:textSize="15sp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            style = "@style/button_text"/>
 
 
     </LinearLayout>

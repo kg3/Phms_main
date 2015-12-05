@@ -2,12 +2,15 @@ package phms.main.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.CalendarContract;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.parse.ParseObject;
 import com.parse.ParseUser;
@@ -16,7 +19,8 @@ import phms.main.R;
 
 
 
-public class NewMedicine extends AppCompatActivity {
+public class NewMedicine extends AppCompatActivity implements View.OnClickListener{
+
 
     /*
        - medication
@@ -49,50 +53,35 @@ public class NewMedicine extends AppCompatActivity {
         etMedicationConflict = (EditText)findViewById(R.id.etMedicationConflict);
 
         SavingMedication = (Button)findViewById(R.id.SavingMedication);
-        //SavingMedication.setOnClickListener(this);
+        SavingMedication.setOnClickListener(this);
 
         SaveAndReminder = (Button)findViewById(R.id.SaveAndReminder);
-        //SaveAndReminder.setOnClickListener(this);
+        SaveAndReminder.setOnClickListener(this);
 
     }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_new_note, menu);
-        getMenuInflater().inflate(R.menu.menu_start, menu);
-        return true;
-    }
-
-    @Override
-    public void onBackPressed() {
-        setResult(NotePadActivity.ACTION_CANCEL);
-        super.onBackPressed();
-    }
 
 
-//    @Override
-//    public void onClick(View view) {
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch(item.getItemId()) {
+    public void onClick(View view) {
+        switch(view.getId()) {
             case R.id.SavingMedication:
-                createMedEntry();
-                return true;
+                saveToParse();
+                Toast.makeText(getBaseContext(), "Medication Saved", Toast.LENGTH_SHORT).show();
+                Intent menu = new Intent(this, MenuMain.class);
+                startActivity(menu);
 
             case R.id.SaveAndReminder:
-                createMedEntry();
-                Intent remember = new Intent(this, RemindersActivity.class);
-                startActivity(remember);
-                return true;
+                Toast.makeText(getBaseContext(), "Lets create a reminder", Toast.LENGTH_SHORT).show();
+                saveToParse();
+                Intent reminder = new Intent(this, RemindersActivity.class);
+                startActivity(reminder);
 
-            default:
-                return super.onOptionsItemSelected(item);
-
-            //default:
         }
 
     }
 
-    private void createMedEntry(){
+
+    private void saveToParse(){
         ParseObject MedicationEntry = new ParseObject("medications");
 
         MedicationEntry.put("author", ParseUser.getCurrentUser());
@@ -103,8 +92,6 @@ public class NewMedicine extends AppCompatActivity {
 
         MedicationEntry.saveInBackground();
 
-        //Finish and let previous activity know we created
-        //setResult(MedicineActivity.ACTION_CREATE);
         finish();
     }
 }
