@@ -27,6 +27,7 @@
 
     <EditText
         android:id="@+id/etCalorieCount"
+        android:inputType="number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Calorie Count"
@@ -36,14 +37,22 @@
 
     <EditText
         android:id="@+id/etWeight"
+        android:inputType="numberDecimal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Weight"
         android:layout_margin = "5dp"
         android:textSize="20sp"/>
 
+    <Button
+        android:id="@+id/bDiet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Submit"/>
+
 
     <TextView
+        android:id="@+id/etTotal"
         android:text="Totals: "
         android:layout_margin = "5dp"
         android:textSize="20sp"
