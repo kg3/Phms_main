@@ -9,10 +9,19 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+
+import com.parse.FindCallback;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+import com.parse.ParseUser;
+
+import java.util.List;
 
 import phms.main.R;
 
-public class DietActivity extends AppCompatActivity {
+public class DietActivity extends AppCompatActivity implements View.OnClickListener {
 
     /*
         - date
@@ -23,6 +32,13 @@ public class DietActivity extends AppCompatActivity {
 
 
     EditText etCalorieCount, etFoodIntake, etWeight;
+    Button bDiet;
+    TextView etTotal;
+    TextView tList;
+
+    Integer sum=0;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,10 +55,64 @@ public class DietActivity extends AppCompatActivity {
             }
         });
 
-
-        etCalorieCount = (EditText)findViewById(R.id.etCalorieCount);
         etFoodIntake = (EditText)findViewById(R.id.etFoodIntake);
+        etCalorieCount = (EditText)findViewById(R.id.etCalorieCount);
         etWeight = (EditText)findViewById(R.id.etWeight);
+
+        etTotal=(TextView)findViewById(R.id.etTotal);
+        tList = (TextView)findViewById(R.id.tList);
+
+
+        loadDiet();
+
+        bDiet = (Button) findViewById(R.id.bDiet);
+        bDiet.setOnClickListener(this);
+    }
+
+    public void loadDiet() {
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("diet");
+        query.whereEqualTo("author", ParseUser.getCurrentUser());
+
+        query.findInBackground(new FindCallback<ParseObject>() {
+            public void done(List<ParseObject> allDiet, ParseException e) {
+
+
+                if (allDiet.size() > 0) {
+                    tList.setText("");
+                    for (ParseObject diet : allDiet) {
+                        sum = sum + Integer.parseInt(diet.get("calorieCount").toString());
+                        tList.append("Food Intake: "+diet.get("foodIntake").toString() + "\nCalorie Count:" + " " + diet.get("calorieCount").toString() + " " + "\nWeight: " + diet.get("weight").toString() + " " +"\n\n");
+                    }
+                    etTotal.setText("Total: "+Integer.toString(sum));
+                    sum=0;
+                }
+
+            }
+
+        });
+
+    }
+
+    @Override
+    public void onClick(View view) {
+
+        switch (view.getId()) {
+            case R.id.bDiet:
+
+                ParseObject diet = new ParseObject("diet");
+
+                diet.put("author", ParseUser.getCurrentUser());
+                diet.put("foodIntake", etFoodIntake.getText().toString());
+                diet.put("calorieCount", etCalorieCount.getText().toString());
+                diet.put("weight", etWeight.getText().toString());
+
+
+                diet.saveInBackground();
+
+                loadDiet();
+
+                break;
+        }
     }
 
 

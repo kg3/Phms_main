@@ -3,7 +3,6 @@ package phms.main.Activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -27,15 +26,13 @@ import phms.main.R;
 public class NotePadActivity extends AppCompatActivity {
 
     public static final int CODE_NEW_NOTE = 0;
-    public static final int CODE_NEW_TODO = 1;
-
     public static final int ACTION_CANCEL = 0;
     public static final int ACTION_CREATE = 1;
 
-    public static final String FLASH_WELCOME = "flash_welcome";
 
+    /* Declare Android Layouts */
     TextView tvNotes;
-    ListView lvNoteList;
+    ListView lvListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,14 +42,14 @@ public class NotePadActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        //Inflate widget and update with notes
+        /* Instantiate Android Layouts */
         tvNotes = (TextView) findViewById(R.id.tvNotes);
+        lvListView = (ListView) findViewById(R.id.lvListView);
 
-        lvNoteList = (ListView) findViewById(R.id.note_list_view);
-        //updateNotes();
-
+        /* load from database */
         loadFromParse();
 
+        /* Button for Note */
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,39 +59,27 @@ public class NotePadActivity extends AppCompatActivity {
             }
         });
 
-        //Welcome message if needed
-        Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            if (extras.getBoolean(FLASH_WELCOME, false)) {
-                View v = findViewById(R.id.root_view);
 
-                Snackbar.make(v, "Welcome!", Snackbar.LENGTH_LONG)
-                        .setAction("Tutorial", new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                //nothing
-                            }
-                        }).show();
-
-            }
-        }
     }
 
 
     private void loadFromParse() {
 
         /* query the database */
-
         ParseQuery<ParseObject> query = ParseQuery.getQuery("note");
         query.whereEqualTo("author", ParseUser.getCurrentUser());
 
         /* update your code with this line */
         query.orderByDescending("createdAt");
+
         query.findInBackground(new FindCallback<ParseObject>() {
             public void done(List<ParseObject> allNotes, ParseException e) {
                 // commentList now has the comments for myPost
 
-                if (allNotes.size() > 0) {
+                // ArrayList noteArray = new ArrayList( allNotes.toArray() );
+                //lvListView.setAdapter();
+
+                if (!allNotes.isEmpty()) {
                     tvNotes.setText("");
                     for (ParseObject _note : allNotes) {
 
@@ -105,33 +90,6 @@ public class NotePadActivity extends AppCompatActivity {
             }
         });
 
-
-//        ParseQuery<ParseObject> query = note_parse.getQuery();
-//        query.whereEqualTo("author", ParseUser.getCurrentUser());
-//        query.findInBackground(new FindCallback<note_parse>() {
-//            public void done(List<note_parse> allnotes, ParseException e) {
-//                if (e == null) {
-//                    ParseObject.pinAllInBackground((List<note_parse>) allnotes,
-//                            new SaveCallback() {
-//                                public void done(ParseException e) {
-//                                    if (e == null) {
-//                                        if (!isFinishing()) {
-//                                           // allnotes.loadObjects();
-//                                        }
-//                                    } else {
-//                                        Log.i("TodoListActivity",
-//                                                "Error pinning todos: "
-//                                                        + e.getMessage());
-//                                    }
-//                                }
-//                            });
-//                } else {
-//                    Log.i("TodoListActivity",
-//                            "loadFromParse: Error finding pinned todos: "
-//                                    + e.getMessage());
-//                }
-//            }
-//        });
     }
 
     @Override
@@ -142,13 +100,13 @@ public class NotePadActivity extends AppCompatActivity {
 
             //Note was created! update it!
             if (resultCode == ACTION_CREATE) {
-                Toast.makeText(getBaseContext(), "Cool yo!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getBaseContext(), "Note Added", Toast.LENGTH_SHORT).show();
                 loadFromParse();
             }
 
             //Note was canceled
             else if (resultCode == ACTION_CANCEL) {
-                Toast.makeText(getBaseContext(), "Sad day :(", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getBaseContext(), "Not saved, no new note", Toast.LENGTH_SHORT).show();
             }
         }
     }

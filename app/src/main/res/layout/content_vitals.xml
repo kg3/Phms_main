@@ -34,6 +34,7 @@
 
     <EditText
         android:id="@+id/etGlucose"
+        android:inputType="number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter glucose level"
@@ -42,6 +43,7 @@
 
     <EditText
         android:id="@+id/etCholesterol"
+        android:inputType="number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter cholesterol level"
