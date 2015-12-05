@@ -16,6 +16,7 @@
     <!--fixed booboo-->
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -88,5 +89,9 @@
     <TextView
         android:id="@+id/tvMedicines"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_below="@+id/linearLayout"
+        android:autoText="true"
+        android:maxLines="500"
+        android:scrollbars="vertical" />
 </RelativeLayout>
