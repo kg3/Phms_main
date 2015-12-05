@@ -6,8 +6,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,8 +34,6 @@ public class NotePadActivity extends AppCompatActivity {
     public static final int ACTION_CREATE = 1;
     /* Declare Android Layouts */
     TextView tvNotes;
-    // list view
-    ListView lvListView;
     /* !! PARSE !! */
     private ParseQueryAdapter<ParseObject> mainAdapter;
     private noteAdapter noteAdapter;
@@ -67,27 +64,15 @@ public class NotePadActivity extends AppCompatActivity {
 
         // /* !! PARSE !! */ Initialize ListView and set initial view to mainAdapter
         listView = (ListView) findViewById(R.id.list);
+
+        /* noteAdapter */
         listView.setAdapter(noteAdapter);
         noteAdapter.loadObjects();
-        mainAdapter.loadObjects();
 
-        // /* !! PARSE !! */ Initialize toggle button
-        Button toggleButton = (Button) findViewById(R.id.toggleButton);
-        toggleButton.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (listView.getAdapter() == noteAdapter) {     // switching from main as main to note as the first view
-                    listView.setAdapter(mainAdapter);
-                    mainAdapter.loadObjects();
-                    mainAdapter.setAutoload(true);
-                } else {
-                    listView.setAdapter(noteAdapter);
-                    noteAdapter.loadObjects();
-                    noteAdapter.setAutoload(true);
-                }
-            }
+        /* mainAdapter */
+//        listView.setAdapter(mainAdapter);
+//        mainAdapter.loadObjects();
 
-        });
 
         /* Button for Making a Note */
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -99,6 +84,51 @@ public class NotePadActivity extends AppCompatActivity {
             }
         });
 
+        /* float_button to toggle different views */
+        FloatingActionButton fab2 = (FloatingActionButton) findViewById(R.id.fab2);
+        fab2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (listView.getAdapter() == noteAdapter) {     // switching from main as main to note as the first view
+                    listView.setAdapter(mainAdapter);
+                    mainAdapter.loadObjects();
+                    mainAdapter.setAutoload(true);
+                } else {
+                    listView.setAdapter(noteAdapter);
+                    noteAdapter.loadObjects();
+                    noteAdapter.setAutoload(true);
+                }
+            }
+        });
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                Toast.makeText(getApplicationContext(),
+                        "Click ListItem Number " + position, Toast.LENGTH_LONG)
+                        .show();
+            }
+        });
+
+
+        //        // /* !! PARSE !! */ Initialize toggle button
+//        Button toggleButton = (Button) findViewById(R.id.toggleButton);
+//        toggleButton.setOnClickListener(new OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (listView.getAdapter() == noteAdapter) {     // switching from main as main to note as the first view
+//                    listView.setAdapter(mainAdapter);
+//                    mainAdapter.loadObjects();
+//                    mainAdapter.setAutoload(true);
+//                } else {
+//                    listView.setAdapter(noteAdapter);
+//                    noteAdapter.loadObjects();
+//                    noteAdapter.setAutoload(true);
+//                }
+//            }
+//
+//        });
 
     }
 
