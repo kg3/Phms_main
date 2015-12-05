@@ -34,6 +34,7 @@ public class DietActivity extends AppCompatActivity implements View.OnClickListe
     EditText etCalorieCount, etFoodIntake, etWeight;
     Button bDiet;
     TextView etTotal;
+    TextView tList;
 
     Integer sum=0;
 
@@ -59,8 +60,8 @@ public class DietActivity extends AppCompatActivity implements View.OnClickListe
         etWeight = (EditText)findViewById(R.id.etWeight);
 
         etTotal=(TextView)findViewById(R.id.etTotal);
+        tList = (TextView)findViewById(R.id.tList);
 
-        //tList = (TextView) findViewById(R.id.tList);
         loadDiet();
 
         bDiet = (Button) findViewById(R.id.bDiet);
@@ -76,11 +77,13 @@ public class DietActivity extends AppCompatActivity implements View.OnClickListe
 
 
                 if (allDiet.size() > 0) {
-                    //tList.setText("");
+                    tList.setText("");
                     for (ParseObject diet : allDiet) {
                         sum = sum + Integer.parseInt(diet.get("calorieCount").toString());
+                        tList.append("Food Intake: "+diet.get("foodIntake").toString() + "\nCalorie Count:" + " " + diet.get("calorieCount").toString() + " " + "\nWeight: " + diet.get("weight").toString() + " " +"\n\n");
                     }
-                    etTotal.setText(Integer.toString(sum));
+                    etTotal.setText("Total: "+Integer.toString(sum));
+                    sum=0;
                 }
 
             }
