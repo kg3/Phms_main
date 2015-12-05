@@ -62,6 +62,7 @@ public class DietActivity extends AppCompatActivity implements View.OnClickListe
         etTotal=(TextView)findViewById(R.id.etTotal);
         tList = (TextView)findViewById(R.id.tList);
 
+
         loadDiet();
 
         bDiet = (Button) findViewById(R.id.bDiet);
