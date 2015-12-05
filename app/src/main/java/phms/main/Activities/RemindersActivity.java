@@ -7,10 +7,18 @@ import android.app.AlarmManager;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.app.Activity;
+import android.os.SystemClock;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -38,7 +46,14 @@ public class RemindersActivity extends Activity implements OnClickListener {
     TextView info;
 
     TextView tList;
-    final static int RQS_1 = 1;
+    //final static int RQS_1 = 1;
+
+    PendingIntent pi;
+    BroadcastReceiver br;
+    AlarmManager am;
+
+   // final static private long ONE_SECOND = 1000;
+    //final static private long TWENTY_SECONDS = ONE_SECOND * 20;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +67,8 @@ public class RemindersActivity extends Activity implements OnClickListener {
 
         pickerDate = (DatePicker) findViewById(R.id.pickerdate);
         pickerTime = (TimePicker) findViewById(R.id.pickertime);
+
+
 
         Calendar now = Calendar.getInstance();
 
@@ -71,6 +88,9 @@ public class RemindersActivity extends Activity implements OnClickListener {
                 pickerTime.getCurrentHour(),
                 pickerTime.getCurrentMinute(),
                 00);
+
+        // Setting up alarm
+
 
 
         readPicker = (Button) findViewById(R.id.readpicker);
@@ -115,11 +135,38 @@ public class RemindersActivity extends Activity implements OnClickListener {
 
                 reminder.saveInBackground();
 
-                loadReminders();
+                setup();
 
+                final long time = 1000 * pickerTime.getCurrentHour() + 1000*pickerTime.getCurrentMinute();
+
+                am.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() + time, pi);
+
+                loadReminders();
                 break;
         }
     }
-}
 
+    private void setup() {
+        br = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context c, Intent i) {
+                Toast.makeText(c, etReminder.getText().toString(), Toast.LENGTH_LONG).show();
+            }
+        };
+
+        final long time = 1000 * pickerTime.getCurrentHour() + 1000*pickerTime.getCurrentMinute();
+        registerReceiver(br, new IntentFilter("com.authorwjf.wakeywakey") );
+        pi = PendingIntent.getBroadcast( this, 0, new Intent("com.authorwjf.wakeywakey"),
+                0 );
+        am = (AlarmManager)(this.getSystemService( Context.ALARM_SERVICE ));
+
+        Uri ringtoneUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
+        Ringtone ringtoneSound = RingtoneManager.getRingtone(getApplicationContext(), ringtoneUri);
+
+        //    ringtoneSound.wait(time);
+          //  ringtoneSound.notify();
+            //ringtoneSound.play();
+
+    }
+}
 
