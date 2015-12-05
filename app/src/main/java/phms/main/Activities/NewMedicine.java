@@ -2,23 +2,15 @@ package phms.main.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.parse.FindCallback;
-import com.parse.ParseException;
 import com.parse.ParseObject;
-import com.parse.ParseQuery;
 import com.parse.ParseUser;
-
-import java.util.List;
 
 import phms.main.R;
 
@@ -66,6 +58,7 @@ public class NewMedicine extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_new_note, menu);
+        getMenuInflater().inflate(R.menu.menu_start, menu);
         return true;
     }
 
@@ -89,6 +82,7 @@ public class NewMedicine extends AppCompatActivity {
                 createMedEntry();
                 Intent remember = new Intent(this, RemindersActivity.class);
                 startActivity(remember);
+                return true;
 
             default:
                 return super.onOptionsItemSelected(item);
@@ -110,7 +104,7 @@ public class NewMedicine extends AppCompatActivity {
         MedicationEntry.saveInBackground();
 
         //Finish and let previous activity know we created
-        setResult(MedicineActivity.ACTION_CREATE);
+        //setResult(MedicineActivity.ACTION_CREATE);
         finish();
     }
 }
