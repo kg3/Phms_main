@@ -19,50 +19,49 @@
     android:padding="40dp">
 
 
-    <EditText
-        android:layout_marginTop="@dimen/abc_action_bar_icon_vertical_padding_material"
-        android:id="@+id/etCall"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter number"
-        android:layout_margin = "5dp"
-        android:textSize="20sp" />
-
     <Button
         android:id="@+id/bCall"
-        android:text="Call"
+        android:text="Call Physician"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin = "5dp"
-        android:textSize="20sp"/>
+        android:layout_margin = "5dp" />
+
+    <Button
+        android:id="@+id/bEmergencyCall"
+        android:text="Call Emergency Contact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin = "5dp" />
 
 
     <Button
         android:id="@+id/bText"
-        android:text="Send Text"
+        android:text="Text Physician"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin = "5dp"
-        android:textSize="20sp"/>
+        android:layout_margin = "5dp" />
 
-    <EditText
-        android:layout_marginTop="@dimen/abc_action_bar_icon_vertical_padding_material"
-        android:id="@+id/etEmail"
+    <Button
+        android:id="@+id/bEmergencyText"
+        android:text="Text Emergency Contact"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter email address"
-        android:layout_margin = "5dp"
-        android:textSize="20sp"/>
-
+        android:layout_margin = "5dp" />
 
 
     <Button
         android:id="@+id/bEmail"
-        android:text="Send Email"
+        android:text="Email Physician"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin = "5dp"
-        android:textSize="20sp"/>
+        android:layout_margin = "5dp" />
+
+    <Button
+        android:id="@+id/bEmergencyEmail"
+        android:text="Email Emergency Contact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin = "5dp" />
 
 
 

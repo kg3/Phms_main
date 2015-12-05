@@ -19,20 +19,17 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 
+import com.parse.Parse;
+import com.parse.ParseUser;
 
 import phms.main.R;
 
 public class CommunicationActivity extends AppCompatActivity implements View.OnClickListener {
 
-    /*
-        - SMS
-        - Email
-        - Phone Number
-     */
 
-    EditText etEmail, etCall;
-    Button bCall, bText, bEmail;
+    Button bCall, bText, bEmail, bEmergencyCall, bEmergencyText, bEmergencyEmail;
 
+    String etCall, etText, etEmail, etEmergencyEmail, etEmergencyCall, etEmergencyText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,12 +47,22 @@ public class CommunicationActivity extends AppCompatActivity implements View.OnC
         });
 
 
-
-        etEmail = (EditText)findViewById(R.id.etEmail);
-        etCall = (EditText)findViewById(R.id.etCall);
+        ParseUser user = ParseUser.getCurrentUser();
+        etCall = user.get("physicianPhone").toString();
+        etText = user.get("physicianPhone").toString();
+        etEmail = user.get("physicianEmail").toString();
+        etEmergencyCall = user.get("emergencyContactPhone").toString();
+        etEmergencyEmail = user.get("emergencyContactEmail").toString();
+        etEmergencyText = user.get("emergencyContactPhone").toString();
 
         bText = (Button)findViewById(R.id.bText);
         bText.setOnClickListener(this);
+
+        bEmergencyText = (Button)findViewById(R.id.bEmergencyText);
+        bEmergencyText.setOnClickListener(this);
+
+        bEmergencyCall = (Button)findViewById(R.id.bEmergencyCall);
+        bEmergencyCall.setOnClickListener(this);
 
         bEmail = (Button)findViewById(R.id.bEmail);
         bEmail.setOnClickListener(this);
@@ -63,6 +70,8 @@ public class CommunicationActivity extends AppCompatActivity implements View.OnC
         bCall = (Button)findViewById(R.id.bCall);
         bCall.setOnClickListener(this);
 
+        bEmergencyEmail = (Button)findViewById(R.id.bEmergencyEmail);
+        bEmergencyEmail.setOnClickListener(this);
     }
 
 
@@ -73,29 +82,28 @@ public class CommunicationActivity extends AppCompatActivity implements View.OnC
         switch (view.getId()){
             case R.id.bEmail:
 
-                String to = etEmail.getText().toString();
                 Intent email = new Intent(Intent.ACTION_SEND);
-                email.putExtra(Intent.EXTRA_EMAIL  , new String[]{"Recipient"});
-                email.putExtra(Intent.EXTRA_SUBJECT, "subject");
-                email.putExtra(Intent.EXTRA_TEXT   , "Message Body");
+                email.putExtra(Intent.EXTRA_EMAIL  , etEmail);
+                email.putExtra(Intent.EXTRA_SUBJECT, "Medical Contact.");
+                email.putExtra(Intent.EXTRA_TEXT   , "Dear .....");  // add name later from contacts
                 email.setType("message/rfc822");
-                startActivity(Intent.createChooser(email, to));
+                startActivity(Intent.createChooser(email,  "Choose an Email client :"));
 
                 break;
 
             case R.id.bCall:
 
                 try {
-                    if (etCall != null && (etCall.getText().length()==10
-                            ||etCall.getText().length()==11)) {
-                        Uri number = Uri.parse("tel:" + etCall.getText());
+                    if (etCall != null && (etCall.length()==10
+                            ||etCall.length()==11)) {
+                        Uri number = Uri.parse("tel:" + etCall);
                         Intent callIntent = new Intent(Intent.ACTION_DIAL, number);
                         startActivity(callIntent);
-                    }else if(etCall != null && etCall.getText().length()==0){
+                    }else if(etCall != null && etCall.length()==0){
                         Toast.makeText(getApplicationContext(),
                                 "You missed to type the number!", Toast.LENGTH_SHORT).show();
                     }else if(etCall != null &&
-                            etCall.getText().length()<10){
+                            etCall.length()<10){
                         Toast.makeText(getApplicationContext(),"Check whether you entered correct number!",Toast.LENGTH_SHORT).show();
                     }
                 } catch (Exception e) {
@@ -108,8 +116,45 @@ public class CommunicationActivity extends AppCompatActivity implements View.OnC
             case R.id.bText:
 
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("sms:"
-                        + etCall.getText().toString())));
+                        + etText)));
                 break;
+
+            case R.id.bEmergencyCall:
+                try {
+                    if (etEmergencyCall != null && (etEmergencyCall.length()==10
+                            ||etEmergencyCall.length()==11)) {
+                        Uri number = Uri.parse("tel:" + etEmergencyCall);
+                        Intent callIntent = new Intent(Intent.ACTION_DIAL, number);
+                        startActivity(callIntent);
+                    }else if(etEmergencyCall != null && etEmergencyCall.length()==0){
+                        Toast.makeText(getApplicationContext(),
+                                "You missed to type the number during registration!", Toast.LENGTH_SHORT).show();
+                    }else if(etEmergencyCall != null &&
+                            etEmergencyCall.length()<10){
+                        Toast.makeText(getApplicationContext(),"Check whether you entered correct number!",Toast.LENGTH_SHORT).show();
+                    }
+                } catch (Exception e) {
+                    Log.e("DialerAppActivity", "error: " +
+                            e.getMessage(), e);//Runtime error will be logged
+                }
+
+                break;
+
+            case R.id.bEmergencyText:
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("sms:"
+                        + etEmergencyText)));
+                break;
+
+            case R.id.bEmergencyEmail:
+                Intent eEmail = new Intent(Intent.ACTION_SEND);
+                eEmail.putExtra(Intent.EXTRA_EMAIL  , etEmergencyEmail);
+                eEmail.putExtra(Intent.EXTRA_SUBJECT, "Medical Contact.");
+                eEmail.putExtra(Intent.EXTRA_TEXT   , "Dear .....");  // add name later from contacts
+                eEmail.setType("message/rfc822");
+                startActivity(Intent.createChooser(eEmail,  "Choose an Email client :"));
+
+                break;
+
         }
     }
 }

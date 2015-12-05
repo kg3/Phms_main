@@ -3,6 +3,12 @@ package phms.main.Activities;
 import java.util.Calendar;
 import java.util.List;
 
+import android.app.AlarmManager;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.View;
@@ -12,6 +18,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -28,14 +35,17 @@ public class RemindersActivity extends Activity implements OnClickListener {
     TimePicker pickerTime;
     Button readPicker;
     EditText etReminder;
+    TextView info;
 
     TextView tList;
+    final static int RQS_1 = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reminders);
 
+        info = (TextView) findViewById(R.id.info);
         etReminder = (EditText) findViewById(R.id.etReminder);
         tList = (TextView) findViewById(R.id.tList);
         loadReminders();
@@ -62,6 +72,7 @@ public class RemindersActivity extends Activity implements OnClickListener {
                 pickerTime.getCurrentMinute(),
                 00);
 
+
         readPicker = (Button) findViewById(R.id.readpicker);
         readPicker.setOnClickListener(this);
 
@@ -78,7 +89,7 @@ public class RemindersActivity extends Activity implements OnClickListener {
                 if (allReminders.size() > 0) {
                     tList.setText("");
                     for (ParseObject reminder : allReminders) {
-                        tList.append(reminder.get("eventsTitle").toString() + " " + reminder.get("year") + " " + reminder.get("month")+" " + reminder.get("day")+ " "+ reminder.get("hour")+" "+ reminder.get("minute") + " " + "\n\n");
+                        tList.append(reminder.get("eventsTitle").toString() + " " + reminder.get("year") + " " + reminder.get("month") + " " + reminder.get("day") + " " + reminder.get("hour") + " " + reminder.get("minute") + " " + "\n\n");
                     }
                 }
             }
@@ -97,11 +108,10 @@ public class RemindersActivity extends Activity implements OnClickListener {
                 reminder.put("author", ParseUser.getCurrentUser());
                 reminder.put("eventsTitle", etReminder.getText().toString());
                 reminder.put("year", pickerDate.getYear());
-                reminder.put("month", pickerDate.getMonth()+1);
+                reminder.put("month", pickerDate.getMonth() + 1);
                 reminder.put("day", pickerDate.getDayOfMonth());
                 reminder.put("hour", pickerTime.getCurrentHour());
                 reminder.put("minute", pickerTime.getCurrentMinute());
-
 
                 reminder.saveInBackground();
 
@@ -111,3 +121,5 @@ public class RemindersActivity extends Activity implements OnClickListener {
         }
     }
 }
+
+
