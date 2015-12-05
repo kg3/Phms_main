@@ -75,19 +75,4 @@
         android:layout_marginTop="47dp"
         android:text="Vital Signs" />
 
-    <ImageButton
-        android:id="@+id/pencilButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/reminders"
-        android:layout_alignLeft="@+id/communication"
-        android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/reminders"
-        android:layout_alignStart="@+id/communication"
-        android:layout_below="@+id/communication"
-        android:layout_marginBottom="326dp"
-        android:layout_marginEnd="41dp"
-        android:layout_marginRight="41dp"
-        android:layout_marginTop="34dp"
-        android:background="@android:drawable/ic_menu_edit" />
 </RelativeLayout>
