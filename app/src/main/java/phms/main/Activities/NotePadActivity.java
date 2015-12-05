@@ -52,7 +52,6 @@ public class NotePadActivity extends AppCompatActivity {
 
         /* Instantiate Android Layouts */
         //tvNotes = (TextView) findViewById(R.id.tvNotes);          /* !! PARSE !! */
-        lvListView = (ListView) findViewById(R.id.list);
 
         /* load from database */
         //loadFromParse();
@@ -60,33 +59,35 @@ public class NotePadActivity extends AppCompatActivity {
         // /* !! PARSE !! */ Initialize main ParseQueryAdapter
         mainAdapter = new ParseQueryAdapter<ParseObject>(this, "note");
         mainAdapter.setTextKey("title");
+        //mainAdapter.setTextKey("note");
         //mainAdapter.setImageKey("image");
 
         noteAdapter = new noteAdapter(this);
+        noteAdapter.setTextKey("title");
 
         // /* !! PARSE !! */ Initialize ListView and set initial view to mainAdapter
         listView = (ListView) findViewById(R.id.list);
-        listView.setAdapter(mainAdapter);
+        listView.setAdapter(noteAdapter);
+        noteAdapter.loadObjects();
         mainAdapter.loadObjects();
 
         // /* !! PARSE !! */ Initialize toggle button
         Button toggleButton = (Button) findViewById(R.id.toggleButton);
         toggleButton.setOnClickListener(new OnClickListener() {
-
             @Override
             public void onClick(View v) {
-                if (listView.getAdapter() == mainAdapter) {
-                    listView.setAdapter(noteAdapter);
-                    noteAdapter.loadObjects();
-                } else {
+                if (listView.getAdapter() == noteAdapter) {     // switching from main as main to note as the first view
                     listView.setAdapter(mainAdapter);
                     mainAdapter.loadObjects();
+                    mainAdapter.setAutoload(true);
+                } else {
+                    listView.setAdapter(noteAdapter);
+                    noteAdapter.loadObjects();
+                    noteAdapter.setAutoload(true);
                 }
             }
 
         });
-
-
 
         /* Button for Making a Note */
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -135,7 +136,9 @@ public class NotePadActivity extends AppCompatActivity {
             //Note was created! update it!
             if (resultCode == ACTION_CREATE) {
                 Toast.makeText(getBaseContext(), "Note Added", Toast.LENGTH_SHORT).show();
-                loadFromParse();
+                //loadFromParse();
+                noteAdapter.loadObjects();
+                mainAdapter.loadObjects();
             }
 
             //Note was canceled
