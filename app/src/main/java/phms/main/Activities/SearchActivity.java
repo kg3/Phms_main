@@ -51,7 +51,7 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
         tList = (TextView) findViewById(R.id.tList);
 
         dropdown = (Spinner)findViewById(R.id.spinner1);
-        String[] items = new String[]{"All", "Diet", "Medicine", "Notes", "Reminders"};
+        String[] items = new String[]{"All", "Diet", "Medicine", "Notes", "Reminders", "People"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
         dropdown.setAdapter(adapter);
 
@@ -74,18 +74,35 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
         tList.setText("");
         switch (v.getId()) {
             case R.id.searchButton:
-//                if(category.equals("All") || category.equals("Diet")){
-//                    //ParseQuery<ParseObject> query = ParseQuery.getQuery("diet");
-//                    //query.whereEqualTo("author", ParseUser.getCurrentUser());
-//                }
-//
-//                if(category.equals("All") || category.equals("Medicine")){
-//
-//                }
+                if(category.equals("All") || category.equals("Diet")){
+                    ParseQuery<ParseObject> query = ParseQuery.getQuery("diet");
+                    query.whereEqualTo("author", ParseUser.getCurrentUser());
+                    query.orderByDescending("createdAt");
+                    query.whereContains("foodIntake", etSearch.getText().toString());
+                }
+
+                if(category.equals("All") || category.equals("Medicine")){
+                    ParseQuery<ParseObject> query = ParseQuery.getQuery("medicine");
+                    query.whereEqualTo("author", ParseUser.getCurrentUser());
+                    query.orderByDescending("createdAt");
+                    query.whereContains("medicineName", etSearch.getText().toString());
+                }
 
                 if(category.equals("All") || category.equals("Notes")){
                     ParseQuery<ParseObject> query = ParseQuery.getQuery("note");
                     query.whereEqualTo("author", ParseUser.getCurrentUser());
+                    query.orderByDescending("createdAt");
+                    query.whereContains("title", etSearch.getText().toString());
+                    query.findInBackground(new FindCallback<ParseObject>() {
+                        public void done(List<ParseObject> allNotes, ParseException e) {
+                            if (allNotes.size() > 0) {
+                                tList.append("Notes:\n");
+                                for (ParseObject reminder : allNotes) {
+                                    tList.append("  " + reminder.get("title").toString() + ": " + reminder.get("note") +"\n");
+                                }
+                            }
+                        }
+                    });
                 }
 
                 if(category.equals("All") || category.equals("Reminders")){
@@ -96,17 +113,29 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
                     query.findInBackground(new FindCallback<ParseObject>() {
                         public void done(List<ParseObject> allReminders, ParseException e) {
                             if (allReminders.size() > 0) {
-
-
+                                tList.append("Reminders:\n");
                                 for (ParseObject reminder : allReminders) {
-                                    tList.append(reminder.get("eventsTitle").toString() + " " + reminder.get("year") + " " + reminder.get("month") + " " + reminder.get("day") + " " + reminder.get("hour") + " " + reminder.get("minute") + " " + "\n\n");
+                                    tList.append("  " + reminder.get("eventsTitle").toString() + " " + reminder.get("year") + " " + reminder.get("month") + " " + reminder.get("day") + " " + reminder.get("hour") + " " + reminder.get("minute") + " " + "\n");
                                 }
                             }
                         }
                     });
                 }
 
-                break;
+                if(category.equals("All") || category.equals("People")) {
+                    ParseUser user = ParseUser.getCurrentUser();
+                    String pName = user.get("age").toString();
+                    String pNumber = user.get("physicianNumber").toString();
+                    String pEmail = user.get("physicianEmail").toString();
+                    String eName = user.get("age").toString();
+                    String eNumber = user.get("physicianNumber").toString();
+                    String eEmail = user.get("physicianEmail").toString();
+
+
+
+                }
+
+                    break;
         }
     }
 }
