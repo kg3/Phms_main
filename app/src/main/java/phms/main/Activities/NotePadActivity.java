@@ -62,7 +62,7 @@ public class NotePadActivity extends AppCompatActivity {
         //mainAdapter.setImageKey("image");
 
         noteAdapter = new NoteAdapter(this);
-        noteAdapter.setTextKey("title");
+        //noteAdapter.setTextKey("title");
 
         // /* !! PARSE !! */ Initialize ListView and set initial view to mainAdapter
         listView = (ListView) findViewById(R.id.list);
