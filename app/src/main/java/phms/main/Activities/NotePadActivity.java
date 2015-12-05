@@ -20,12 +20,14 @@ import com.parse.ParseUser;
 
 import java.util.List;
 
-import phms.main.Models.noteAdapter;
+import phms.main.Models.NoteAdapter;
 import phms.main.R;
 
 
 /**
- *
+ * https://parse.com/docs/android/guide#objects-deleting-objects
+ * http://www.vogella.com/tutorials/AndroidListView/article.html
+ * https://github.com/ParsePlatform/ParseQueryAdapterTutorial/blob/master/src/com/parse/samples/parsequeryadapter/MainActivity.java
  */
 public class NotePadActivity extends AppCompatActivity {
 
@@ -36,7 +38,7 @@ public class NotePadActivity extends AppCompatActivity {
     TextView tvNotes;
     /* !! PARSE !! */
     private ParseQueryAdapter<ParseObject> mainAdapter;
-    private noteAdapter noteAdapter;
+    private NoteAdapter noteAdapter;
     private ListView listView;
 
     @Override
@@ -59,20 +61,21 @@ public class NotePadActivity extends AppCompatActivity {
         //mainAdapter.setTextKey("note");
         //mainAdapter.setImageKey("image");
 
-        noteAdapter = new noteAdapter(this);
+        noteAdapter = new NoteAdapter(this);
         noteAdapter.setTextKey("title");
 
         // /* !! PARSE !! */ Initialize ListView and set initial view to mainAdapter
         listView = (ListView) findViewById(R.id.list);
 
         /* noteAdapter */
-        listView.setAdapter(noteAdapter);
-        noteAdapter.loadObjects();
+//        listView.setAdapter(noteAdapter);
+//        noteAdapter.loadObjects();
+        noteAdapter.setAutoload(true);
 
         /* mainAdapter */
-//        listView.setAdapter(mainAdapter);
-//        mainAdapter.loadObjects();
-
+        listView.setAdapter(mainAdapter);
+        mainAdapter.loadObjects();
+        mainAdapter.setAutoload(true);
 
         /* Button for Making a Note */
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -89,14 +92,15 @@ public class NotePadActivity extends AppCompatActivity {
         fab2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (listView.getAdapter() == noteAdapter) {     // switching from main as main to note as the first view
-                    listView.setAdapter(mainAdapter);
-                    mainAdapter.loadObjects();
-                    mainAdapter.setAutoload(true);
-                } else {
+                /* attempting to load custom adapter in view */
+                if (listView.getAdapter() == mainAdapter) {
                     listView.setAdapter(noteAdapter);
                     noteAdapter.loadObjects();
-                    noteAdapter.setAutoload(true);
+
+                } else {
+                    listView.setAdapter(mainAdapter);
+                    mainAdapter.loadObjects();
+
                 }
             }
         });
@@ -105,9 +109,34 @@ public class NotePadActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
+
+                ParseObject temp = (ParseObject) listView.getAdapter().getItem(position);
                 Toast.makeText(getApplicationContext(),
-                        "Click ListItem Number " + position, Toast.LENGTH_LONG)
-                        .show();
+                        " " + temp.get("note"), Toast.LENGTH_LONG).show();
+
+
+            }
+        });
+
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+
+
+                ParseObject temp = (ParseObject) listView.getAdapter().getItem(position);
+
+                Toast.makeText(getApplicationContext(),
+                        "Deleting " + temp.get("note"), Toast.LENGTH_LONG).show();
+
+
+                temp.deleteInBackground();
+
+                mainAdapter.loadObjects();
+
+                view.setSelected(true);
+
+                return true;
             }
         });
 
