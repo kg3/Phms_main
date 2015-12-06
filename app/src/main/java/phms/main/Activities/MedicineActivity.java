@@ -34,7 +34,6 @@ public class MedicineActivity extends AppCompatActivity {
         setContentView(R.layout.activity_medicine);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        loadFromParse();
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -78,7 +77,6 @@ public class MedicineActivity extends AppCompatActivity {
                                 + "\nFrequency: " + _medication.get("frequency") + "\nConflicts: " + _medication.get("medicineConflicts") + "\n\n");
                     }
                 } else {
-//                    System.out.print("Currently No medications being taken\n");
                     tvMedicines.append("Currently No medications being taken\n");
                 }
             }

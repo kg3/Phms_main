@@ -112,7 +112,7 @@ public class NotePadActivity extends AppCompatActivity {
 
                 ParseObject temp = (ParseObject) listView.getAdapter().getItem(position);
                 Toast.makeText(getApplicationContext(),
-                        " " + temp.get("note"), Toast.LENGTH_LONG).show();
+                        "  " + temp.get("note"), Toast.LENGTH_LONG).show();
 
 
             }
