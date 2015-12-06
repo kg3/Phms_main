@@ -69,6 +69,7 @@ public class NewMedicine extends AppCompatActivity implements View.OnClickListen
                 Toast.makeText(getBaseContext(), "Medication Saved", Toast.LENGTH_SHORT).show();
                 Intent menu = new Intent(this, MenuMain.class);
                 startActivity(menu);
+                return;
 
             case R.id.SaveAndReminder:
                 Toast.makeText(getBaseContext(), "Lets create a reminder", Toast.LENGTH_SHORT).show();

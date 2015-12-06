@@ -74,18 +74,43 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
         tList.setText("");
         switch (v.getId()) {
             case R.id.searchButton:
+                if(etSearch.getText().toString().equals("")) {
+                    tList.append("Must enter a search term\n");
+                    break;
+                }
                 if(category.equals("All") || category.equals("Diet")){
                     ParseQuery<ParseObject> query = ParseQuery.getQuery("diet");
                     query.whereEqualTo("author", ParseUser.getCurrentUser());
                     query.orderByDescending("createdAt");
                     query.whereContains("foodIntake", etSearch.getText().toString());
+                    query.findInBackground(new FindCallback<ParseObject>() {
+                        public void done(List<ParseObject> allDiet, ParseException e) {
+                            if (allDiet.size() > 0) {
+                                tList.append("Diet:\n");
+                                for (ParseObject reminder : allDiet) {
+                                    tList.append("  Food: " + reminder.get("foodIntake").toString() + "\n        Calories: " + reminder.get("calorieCount") + "\n        Weight: " + reminder.get("weight") + "\n");
+                                }
+                            }
+                        }
+                    });
                 }
 
                 if(category.equals("All") || category.equals("Medicine")){
-                    ParseQuery<ParseObject> query = ParseQuery.getQuery("medicine");
+                    ParseQuery<ParseObject> query = ParseQuery.getQuery("medications");
                     query.whereEqualTo("author", ParseUser.getCurrentUser());
                     query.orderByDescending("createdAt");
-                    query.whereContains("medicineName", etSearch.getText().toString());
+                    query.whereContains("medicationName", etSearch.getText().toString());
+                    query.findInBackground(new FindCallback<ParseObject>() {
+                        public void done(List<ParseObject> allMedicine, ParseException e) {
+                            if (allMedicine.size() > 0) {
+                                tList.append("Medication:\n");
+                                for (ParseObject reminder : allMedicine) {
+                                    tList.append("  Medicine: " + reminder.get("medicationName").toString() + "\n        Amount: " + reminder.get("amount")
+                                                    + "\n        Frequency: " + reminder.get("frequency") + "\n        Conflicts: " + reminder.get("medicineConflicts")  + "\n");
+                                }
+                            }
+                        }
+                    });
                 }
 
                 if(category.equals("All") || category.equals("Notes")){
@@ -124,18 +149,42 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
 
                 if(category.equals("All") || category.equals("People")) {
                     ParseUser user = ParseUser.getCurrentUser();
-                    String pName = user.get("age").toString();
-                    String pNumber = user.get("physicianNumber").toString();
+                    String [] pName = user.get("physician").toString().split(" ");
+                    String pNumber = user.get("physicianPhone").toString();
                     String pEmail = user.get("physicianEmail").toString();
-                    String eName = user.get("age").toString();
-                    String eNumber = user.get("physicianNumber").toString();
-                    String eEmail = user.get("physicianEmail").toString();
+                    String [] eName = user.get("emergencyContact").toString().split(" ");
+                    String eNumber = user.get("emergencyContactPhone").toString();
+                    String eEmail = user.get("emergencyContactEmail").toString();
+                    boolean pBoolean = false;
+                    boolean eBoolean = false;
 
-
-
+//                    for(int i = 0; i<pName.length;i++) {
+//                        if (etSearch.getText().toString().equals(pName[i]))
+//                            pBoolean = true;
+//                    }
+                    for(String myString : pName){
+                        if (etSearch.getText().toString().equals(myString))
+                            pBoolean = true;
+                    }
+//                    for(int i = 0; i<eName.length;i++){
+//                        if (etSearch.getText().toString().equals(eName[i]))
+//                            eBoolean = true;
+//                    }
+                    for(String myString : eName){
+                        if (etSearch.getText().toString().equals(myString))
+                            eBoolean = true;
+                    }
+                    if(pBoolean || eBoolean){
+                        tList.append("People:\n");
+                    }
+                    if(pBoolean){
+                        tList.append("    Physician: " + user.get("physician").toString() + "\n    Phone: " + pNumber + "\n    Email: " + pEmail + "\n");
+                    }
+                    if(eBoolean){
+                        tList.append("    Emergency: " + user.get("emergencyContact").toString() + "\n    Phone: " + eNumber + "\n    Email: " + eEmail + "\n");
+                    }
                 }
-
-                    break;
+                break;
         }
     }
 }
