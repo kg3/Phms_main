@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.parse.FindCallback;
@@ -38,6 +39,7 @@ public class DietActivity extends AppCompatActivity implements View.OnClickListe
 
     Integer sum=0;
 
+    ImageView img;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +48,7 @@ public class DietActivity extends AppCompatActivity implements View.OnClickListe
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        /*
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,6 +57,10 @@ public class DietActivity extends AppCompatActivity implements View.OnClickListe
                         .setAction("Action", null).show();
             }
         });
+*/
+        img = (ImageView) findViewById(R.id.img);
+
+        img.setImageResource(R.drawable.diet);
 
         etFoodIntake = (EditText)findViewById(R.id.etFoodIntake);
         etCalorieCount = (EditText)findViewById(R.id.etCalorieCount);
