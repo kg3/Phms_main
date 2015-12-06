@@ -17,7 +17,11 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Fields with * need to be filled out"/>
+            android:text="Please fill all fields"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cant answer? Enter N/A"/>
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
@@ -26,9 +30,9 @@
             <EditText
                 android:id="@+id/etName"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:inputType="text"
-                android:hint="*Your Name"
+                android:hint="Your Name"
                 android:background="@drawable/text_box_rounded"/>
 
         </android.support.design.widget.TextInputLayout>
@@ -41,7 +45,7 @@
             <EditText
                 android:id="@+id/etAge"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:inputType="text"
                 android:hint="Age"
                 android:background="@drawable/text_box_rounded"/>
@@ -56,7 +60,7 @@
             <EditText
                 android:id="@+id/etHeight"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:inputType="text"
                 android:hint="Height"
                 android:background="@drawable/text_box_rounded"/>
@@ -71,7 +75,7 @@
             <EditText
                 android:id="@+id/etWeight"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:inputType="text"
                 android:hint="Weight"
                 android:background="@drawable/text_box_rounded"/>
@@ -86,7 +90,7 @@
             <EditText
                 android:id="@+id/etPhoneNumber"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:inputType="text"
                 android:hint="Phone Number"
                 android:background="@drawable/text_box_rounded"/>
@@ -101,7 +105,7 @@
             <EditText
                 android:id="@+id/etPhysicalAddress"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:inputType="text"
                 android:hint="Physical Address"
                 android:background="@drawable/text_box_rounded"/>
@@ -116,7 +120,7 @@
             <EditText
                 android:id="@+id/etGender"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:inputType="text"
                 android:hint="Gender"
                 android:background="@drawable/text_box_rounded"/>
@@ -131,7 +135,7 @@
             <EditText
                 android:id="@+id/etPhysician"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:inputType="text"
                 android:hint="Primary Physician"
                 android:background="@drawable/text_box_rounded"/>
@@ -146,7 +150,7 @@
             <EditText
                 android:id="@+id/etPhysicianPhone"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:inputType="text"
                 android:hint="Physician Phone Number"
                 android:background="@drawable/text_box_rounded"/>
@@ -161,7 +165,7 @@
             <EditText
                 android:id="@+id/etPhysicianEmail"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:inputType="text"
                 android:hint="Physician Email"
                 android:background="@drawable/text_box_rounded"/>
@@ -176,7 +180,7 @@
             <EditText
                 android:id="@+id/etEmergencyContact"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:inputType="text"
                 android:hint="Emergency Contact"
                 android:background="@drawable/text_box_rounded"/>
@@ -191,7 +195,7 @@
             <EditText
                 android:id="@+id/etEmergencyContactPhone"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:inputType="text"
                 android:hint="Emergency Contact Phone"
                 android:background="@drawable/text_box_rounded"/>
@@ -206,7 +210,7 @@
             <EditText
                 android:id="@+id/etEmergencyContactEmail"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:inputType="text"
                 android:hint="Emergency Contact Email"
                 android:background="@drawable/text_box_rounded"/>
@@ -221,9 +225,9 @@
             <EditText
                 android:id="@+id/etEmail"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:inputType="textEmailAddress"
-                android:hint="*Email Address"
+                android:hint="Email Address"
                 android:background="@drawable/text_box_rounded"/>
 
         </android.support.design.widget.TextInputLayout>
@@ -236,9 +240,9 @@
             <EditText
                 android:id="@+id/etPassword"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:inputType="textPassword"
-                android:hint="*Password"
+                android:hint="Password"
                 android:background="@drawable/text_box_rounded"/>
 
         </android.support.design.widget.TextInputLayout>
