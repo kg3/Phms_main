@@ -3,6 +3,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="@color/pink">
     >
 
     <LinearLayout
@@ -27,7 +28,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
-                android:hint="*Your Name"/>
+                android:hint="*Your Name"
+                android:background="@drawable/text_box_rounded"/>
 
         </android.support.design.widget.TextInputLayout>
 
@@ -41,7 +43,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
-                android:hint="Age"/>
+                android:hint="Age"
+                android:background="@drawable/text_box_rounded"/>
 
         </android.support.design.widget.TextInputLayout>
 
@@ -55,7 +58,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
-                android:hint="Height"/>
+                android:hint="Height"
+                android:background="@drawable/text_box_rounded"/>
 
         </android.support.design.widget.TextInputLayout>
 
@@ -69,7 +73,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
-                android:hint="Weight"/>
+                android:hint="Weight"
+                android:background="@drawable/text_box_rounded"/>
 
         </android.support.design.widget.TextInputLayout>
 
@@ -83,7 +88,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
-                android:hint="Phone Number"/>
+                android:hint="Phone Number"
+                android:background="@drawable/text_box_rounded"/>
 
         </android.support.design.widget.TextInputLayout>
 
@@ -97,7 +103,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
-                android:hint="Physical Address"/>
+                android:hint="Physical Address"
+                android:background="@drawable/text_box_rounded"/>
 
         </android.support.design.widget.TextInputLayout>
 
@@ -111,7 +118,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
-                android:hint="Gender"/>
+                android:hint="Gender"
+                android:background="@drawable/text_box_rounded"/>
 
         </android.support.design.widget.TextInputLayout>
 
@@ -125,7 +133,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
-                android:hint="Primary Physician"/>
+                android:hint="Primary Physician"
+                android:background="@drawable/text_box_rounded"/>
 
         </android.support.design.widget.TextInputLayout>
 
@@ -139,7 +148,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
-                android:hint="Physician Phone Number"/>
+                android:hint="Physician Phone Number"
+                android:background="@drawable/text_box_rounded"/>
 
         </android.support.design.widget.TextInputLayout>
 
@@ -153,7 +163,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
-                android:hint="Physician Email"/>
+                android:hint="Physician Email"
+                android:background="@drawable/text_box_rounded"/>
 
         </android.support.design.widget.TextInputLayout>
 
@@ -167,7 +178,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
-                android:hint="Emergency Contact"/>
+                android:hint="Emergency Contact"
+                android:background="@drawable/text_box_rounded"/>
 
         </android.support.design.widget.TextInputLayout>
 
@@ -181,7 +193,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
-                android:hint="Emergency Contact Phone"/>
+                android:hint="Emergency Contact Phone"
+                android:background="@drawable/text_box_rounded"/>
 
         </android.support.design.widget.TextInputLayout>
 
@@ -195,7 +208,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
-                android:hint="Emergency Contact Email"/>
+                android:hint="Emergency Contact Email"
+                android:background="@drawable/text_box_rounded"/>
 
         </android.support.design.widget.TextInputLayout>
 
@@ -209,7 +223,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
-                android:hint="*Email Address"/>
+                android:hint="*Email Address"
+                android:background="@drawable/text_box_rounded"/>
 
         </android.support.design.widget.TextInputLayout>
 
@@ -223,7 +238,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
-                android:hint="*Password"/>
+                android:hint="*Password"
+                android:background="@drawable/text_box_rounded"/>
 
         </android.support.design.widget.TextInputLayout>
 

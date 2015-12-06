@@ -9,6 +9,7 @@ import android.widget.EditText;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
 
+import phms.main.Models.Note;
 import phms.main.R;
 
 /**
@@ -17,6 +18,7 @@ import phms.main.R;
 public class NewNoteActivity extends AppCompatActivity {
 
     EditText etTitle, etNote;
+    String both;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +27,10 @@ public class NewNoteActivity extends AppCompatActivity {
 
         etTitle = (EditText) findViewById(R.id.etTitle);
         etNote = (EditText) findViewById(R.id.etNote);
+        //both = " ";
+        //bothetTitle.getText().toString() + etNote.getText().toString();
+
+
     }
 
     @Override
@@ -63,6 +69,7 @@ public class NewNoteActivity extends AppCompatActivity {
         note.put("author", ParseUser.getCurrentUser());
         note.put("title", etTitle.getText().toString());
         note.put("note", etNote.getText().toString());
+        note.put("bothTitleAndNote", etTitle.getText().toString() + "  --  " + etNote.getText().toString());
 
         note.saveInBackground();
 

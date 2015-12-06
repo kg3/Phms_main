@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/pink">
 
     <Button
         android:background="@drawable/button_3d"
@@ -30,7 +31,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
-                android:hint="Email Address"/>
+                android:hint="Email Address"
+                android:padding="5dip"
+                android:background="@drawable/text_box_rounded"/>
 
         </android.support.design.widget.TextInputLayout>
 
@@ -44,7 +47,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
-                android:hint="Password"/>
+                android:hint="Password"
+                android:padding="5dip"
+                android:background="@drawable/text_box_rounded"/>
 
         </android.support.design.widget.TextInputLayout>
 
