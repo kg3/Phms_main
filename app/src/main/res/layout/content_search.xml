@@ -21,8 +21,9 @@
     <EditText
         android:id="@+id/etSearch"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_margin="5dp"
+        android:background="@drawable/text_box_rounded"
         android:hint="Enter Search Term"
         android:textSize="20sp"/>
 
@@ -38,11 +39,13 @@
 
     <Button
         android:id="@+id/searchButton"
+        style="@style/button_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/etSearch"
         android:layout_alignStart="@+id/etSearch"
         android:layout_below="@+id/spinner1"
+        android:background="@drawable/button_3d"
         android:text="Search" />
 
     <TextView

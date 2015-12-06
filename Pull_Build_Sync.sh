@@ -1,7 +1,7 @@
 #!/bin/bash
 
-sleep 1
-git pull
+#sleep 1
+#git pull
 
 sleep 1
 ./gradlew assembleDebug

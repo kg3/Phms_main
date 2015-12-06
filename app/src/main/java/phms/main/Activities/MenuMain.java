@@ -1,7 +1,10 @@
 package phms.main.Activities;
 
 
+import android.content.ComponentName;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -93,8 +96,26 @@ public class MenuMain extends AppCompatActivity implements View.OnClickListener 
                 break;
 
             case R.id.reminders:
-                Intent launchClock = getPackageManager().getLaunchIntentForPackage("com.android.deskclock");
-                startActivity(launchClock);
+
+                PackageManager packageManager = this.getPackageManager();
+                if (packageManager != null) {
+
+                    Intent AlarmClockIntent =
+                            new Intent(Intent.ACTION_MAIN).addCategory(
+                                    Intent.CATEGORY_LAUNCHER).setComponent(
+                                    new ComponentName("com.android.deskclock", "com.android.deskclock.DeskClock"));
+
+                    ResolveInfo resolved = packageManager.resolveActivity(AlarmClockIntent, PackageManager.MATCH_DEFAULT_ONLY);
+                    if (resolved != null) {
+                        startActivity(AlarmClockIntent);
+                        //finish();
+                        return;
+                    } else {
+                        // required activity can not be located!
+                    }
+                }
+//                Intent launchClock = getPackageManager().getLaunchIntentForPackage("com.android.deskclock");
+//                startActivity(launchClock);
 //                Intent remindersIntent = new Intent(this, RemindersActivity.class);
 //                startActivity(remindersIntent);
                 break;

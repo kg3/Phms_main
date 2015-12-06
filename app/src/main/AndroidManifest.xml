@@ -80,6 +80,8 @@
             android:name=".Activities.NewMedicine"
             android:label="@string/title_activity_new_medicine"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+
+
     </application>
 
 </manifest>
