@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -18,11 +17,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
 
-    android:orientation="vertical"
-    android:layout_height="wrap_content"
     android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:layout_alignParentTop="true"
     android:layout_centerHorizontal="true"
+    android:orientation="vertical"
     android:padding="40dp">
 
     <TextView
@@ -33,31 +32,31 @@
 
 
     <Button
-        android:background="@drawable/button_3d"
         android:id="@+id/bCall"
-        android:text="Call"
+        style="@style/button_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin = "5dp"
-        style = "@style/button_text"/>
+        android:background="@drawable/button_3d"
+        android:text="Call" />
 
     <Button
-        android:background="@drawable/button_3d"
         android:id="@+id/bText"
-        android:text="Text"
+        style="@style/button_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin = "5dp"
-        style = "@style/button_text"/>
+        android:background="@drawable/button_3d"
+        android:text="Text" />
 
     <Button
-        android:background="@drawable/button_3d"
         android:id="@+id/bEmail"
-        android:text="Email"
+        style="@style/button_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin = "5dp"
-        style = "@style/button_text"/>
+        android:background="@drawable/button_3d"
+        android:text="Email" />
 
     <TextView
         android:layout_width="match_parent"
@@ -66,31 +65,31 @@
         android:textSize="30dp"/>
 
     <Button
-        android:background="@drawable/button_3d"
         android:id="@+id/bEmergencyCall"
-        android:text="Call"
+        style="@style/button_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin = "5dp"
-        style = "@style/button_text"/>
+        android:background="@drawable/button_3d"
+        android:text="Call" />
 
     <Button
-        android:background="@drawable/button_3d"
         android:id="@+id/bEmergencyText"
-        android:text="Text"
+        style="@style/button_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin = "5dp"
-        style = "@style/button_text"/>
+        android:background="@drawable/button_3d"
+        android:text="Text" />
 
     <Button
-        android:background="@drawable/button_3d"
         android:id="@+id/bEmergencyEmail"
-        android:text="Email"
+        style="@style/button_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin = "5dp"
-        style = "@style/button_text"/>
+        android:background="@drawable/button_3d"
+        android:text="Email" />
 
 
 

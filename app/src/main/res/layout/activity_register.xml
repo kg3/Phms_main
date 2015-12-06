@@ -4,14 +4,13 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@color/pink">
-    >
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:orientation="vertical"
         android:padding="@dimen/activity_horizontal_margin">
 
         <TextView
@@ -31,231 +30,231 @@
                 android:id="@+id/etName"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:inputType="text"
+                android:background="@drawable/text_box_rounded"
                 android:hint="Your Name"
-                android:background="@drawable/text_box_rounded"/>
+                android:inputType="text" />
 
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
-            android:layout_marginTop="@dimen/widget_margin"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/widget_margin">
 
             <EditText
                 android:id="@+id/etAge"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:inputType="text"
+                android:background="@drawable/text_box_rounded"
                 android:hint="Age"
-                android:background="@drawable/text_box_rounded"/>
+                android:inputType="text" />
 
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
-            android:layout_marginTop="@dimen/widget_margin"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/widget_margin">
 
             <EditText
                 android:id="@+id/etHeight"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:inputType="text"
+                android:background="@drawable/text_box_rounded"
                 android:hint="Height"
-                android:background="@drawable/text_box_rounded"/>
+                android:inputType="text" />
 
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
-            android:layout_marginTop="@dimen/widget_margin"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/widget_margin">
 
             <EditText
                 android:id="@+id/etWeight"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:inputType="text"
+                android:background="@drawable/text_box_rounded"
                 android:hint="Weight"
-                android:background="@drawable/text_box_rounded"/>
+                android:inputType="text" />
 
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
-            android:layout_marginTop="@dimen/widget_margin"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/widget_margin">
 
             <EditText
                 android:id="@+id/etPhoneNumber"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:inputType="text"
+                android:background="@drawable/text_box_rounded"
                 android:hint="Phone Number"
-                android:background="@drawable/text_box_rounded"/>
+                android:inputType="text" />
 
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
-            android:layout_marginTop="@dimen/widget_margin"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/widget_margin">
 
             <EditText
                 android:id="@+id/etPhysicalAddress"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:inputType="text"
+                android:background="@drawable/text_box_rounded"
                 android:hint="Physical Address"
-                android:background="@drawable/text_box_rounded"/>
+                android:inputType="text" />
 
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
-            android:layout_marginTop="@dimen/widget_margin"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/widget_margin">
 
             <EditText
                 android:id="@+id/etGender"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:inputType="text"
+                android:background="@drawable/text_box_rounded"
                 android:hint="Gender"
-                android:background="@drawable/text_box_rounded"/>
+                android:inputType="text" />
 
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
-            android:layout_marginTop="@dimen/widget_margin"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/widget_margin">
 
             <EditText
                 android:id="@+id/etPhysician"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:inputType="text"
+                android:background="@drawable/text_box_rounded"
                 android:hint="Primary Physician"
-                android:background="@drawable/text_box_rounded"/>
+                android:inputType="text" />
 
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
-            android:layout_marginTop="@dimen/widget_margin"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/widget_margin">
 
             <EditText
                 android:id="@+id/etPhysicianPhone"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:inputType="text"
+                android:background="@drawable/text_box_rounded"
                 android:hint="Physician Phone Number"
-                android:background="@drawable/text_box_rounded"/>
+                android:inputType="text" />
 
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
-            android:layout_marginTop="@dimen/widget_margin"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/widget_margin">
 
             <EditText
                 android:id="@+id/etPhysicianEmail"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:inputType="text"
+                android:background="@drawable/text_box_rounded"
                 android:hint="Physician Email"
-                android:background="@drawable/text_box_rounded"/>
+                android:inputType="text" />
 
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
-            android:layout_marginTop="@dimen/widget_margin"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/widget_margin">
 
             <EditText
                 android:id="@+id/etEmergencyContact"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:inputType="text"
+                android:background="@drawable/text_box_rounded"
                 android:hint="Emergency Contact"
-                android:background="@drawable/text_box_rounded"/>
+                android:inputType="text" />
 
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
-            android:layout_marginTop="@dimen/widget_margin"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/widget_margin">
 
             <EditText
                 android:id="@+id/etEmergencyContactPhone"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:inputType="text"
+                android:background="@drawable/text_box_rounded"
                 android:hint="Emergency Contact Phone"
-                android:background="@drawable/text_box_rounded"/>
+                android:inputType="text" />
 
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
-            android:layout_marginTop="@dimen/widget_margin"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/widget_margin">
 
             <EditText
                 android:id="@+id/etEmergencyContactEmail"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:inputType="text"
+                android:background="@drawable/text_box_rounded"
                 android:hint="Emergency Contact Email"
-                android:background="@drawable/text_box_rounded"/>
+                android:inputType="text" />
 
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
-            android:layout_marginTop="@dimen/widget_margin"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/widget_margin">
 
             <EditText
                 android:id="@+id/etEmail"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:inputType="textEmailAddress"
+                android:background="@drawable/text_box_rounded"
                 android:hint="Email Address"
-                android:background="@drawable/text_box_rounded"/>
+                android:inputType="textEmailAddress" />
 
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
-            android:layout_marginTop="@dimen/widget_margin"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/widget_margin">
 
             <EditText
                 android:id="@+id/etPassword"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:inputType="textPassword"
+                android:background="@drawable/text_box_rounded"
                 android:hint="Password"
-                android:background="@drawable/text_box_rounded"/>
+                android:inputType="textPassword" />
 
         </android.support.design.widget.TextInputLayout>
 
         <Button
-            android:background="@drawable/button_3d"
+            android:id="@+id/btnRegister"
+            style="@style/button_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Register"
-            android:id="@+id/btnRegister"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            style = "@style/button_text"/>
+            android:background="@drawable/button_3d"
+            android:text="Register" />
 
 
     </LinearLayout>
