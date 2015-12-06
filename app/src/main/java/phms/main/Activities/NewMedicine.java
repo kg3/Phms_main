@@ -1,6 +1,9 @@
 package phms.main.Activities;
 
+import android.content.ComponentName;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -72,8 +75,26 @@ public class NewMedicine extends AppCompatActivity implements View.OnClickListen
             case R.id.SaveAndReminder:
                 Toast.makeText(getBaseContext(), "Lets create a reminder", Toast.LENGTH_SHORT).show();
                 saveToParse();
-                Intent reminder = new Intent(this, RemindersActivity.class);
-                startActivity(reminder);
+
+//                Intent reminder = new Intent(this, RemindersActivity.class);
+//                startActivity(reminder);
+                PackageManager packageManager = this.getPackageManager();
+                if (packageManager != null) {
+
+                    Intent AlarmClockIntent =
+                            new Intent(Intent.ACTION_MAIN).addCategory(
+                                    Intent.CATEGORY_LAUNCHER).setComponent(
+                                    new ComponentName("com.android.deskclock", "com.android.deskclock.DeskClock"));
+
+                    ResolveInfo resolved = packageManager.resolveActivity(AlarmClockIntent, PackageManager.MATCH_DEFAULT_ONLY);
+                    if (resolved != null) {
+                        startActivity(AlarmClockIntent);
+                        //finish();
+                        return;
+                    } else {
+                        // required activity can not be located!
+                    }
+                }
 
         }
 
