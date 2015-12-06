@@ -158,16 +158,32 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
                     boolean pBoolean = false;
                     boolean eBoolean = false;
 
-                    for(int i = 0; i<pName.length;i++) {
-                        if (etSearch.getText().toString().equals(pName[i]))
+//                    for(int i = 0; i<pName.length;i++) {
+//                        if (etSearch.getText().toString().equals(pName[i]))
+//                            pBoolean = true;
+//                    }
+                    for(String myString : pName){
+                        if (etSearch.getText().toString().equals(myString))
                             pBoolean = true;
                     }
-                    for(int i = 0; i<eName.length;i++){
-                        if (etSearch.getText().toString().equals(eName[i]))
+//                    for(int i = 0; i<eName.length;i++){
+//                        if (etSearch.getText().toString().equals(eName[i]))
+//                            eBoolean = true;
+//                    }
+                    for(String myString : eName){
+                        if (etSearch.getText().toString().equals(myString))
                             eBoolean = true;
                     }
+                    if(pBoolean || eBoolean){
+                        tList.append("People:\n");
+                    }
+                    if(pBoolean){
+                        tList.append("    Physician: " + user.get("physician").toString() + "\n    Phone: " + pNumber + "\n    Email: " + pEmail + "\n");
+                    }
+                    if(eBoolean){
+                        tList.append("    Emergency: " + user.get("emergencyContact").toString() + "\n    Phone: " + eNumber + "\n    Email: " + eEmail + "\n");
+                    }
                 }
-
                 break;
         }
     }
