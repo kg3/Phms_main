@@ -16,7 +16,7 @@ public class NoteAdapter extends ParseQueryAdapter<ParseObject> {
 
     public NoteAdapter(Context context) {
         // Use the QueryFactory to construct a PQA that will only show
-        // notes for author; createdAt decending
+        // notes for author; createdAt descending
         super(context, new ParseQueryAdapter.QueryFactory<ParseObject>() {
             public ParseQuery create() {
                 ParseQuery query = new ParseQuery("notes");
@@ -31,7 +31,7 @@ public class NoteAdapter extends ParseQueryAdapter<ParseObject> {
     @Override
     public View getItemView(ParseObject object, View v, ViewGroup parent) {
         if (v == null) {
-            v = View.inflate(getContext(), R.layout.list_item, null);
+            v = View.inflate(getContext(), R.layout.custom_list_item, null);
         }
 
         super.getItemView(object, v, parent);
