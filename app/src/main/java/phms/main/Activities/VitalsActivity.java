@@ -1,8 +1,6 @@
 package phms.main.Activities;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -62,16 +60,16 @@ public class VitalsActivity extends AppCompatActivity implements View.OnClickLis
     public void loadVitals() {
         ParseQuery<ParseObject> query = ParseQuery.getQuery("vitals");
         query.whereEqualTo("author", ParseUser.getCurrentUser());
-
+        query.orderByDescending("createdAt");
         query.findInBackground(new FindCallback<ParseObject>() {
             public void done(List<ParseObject> allVitals, ParseException e) {
-
-
 
                 if (allVitals.size() > 0) {
                     tList.setText("");
                     for (ParseObject vitals : allVitals) {
-                        tList.append("Blood Pressure: "+vitals.get("bloodPressure").toString() + "\nGlucose:" + " " + vitals.get("glucose").toString() + " " + "\nCholesterol: " +vitals.get("cholesterol").toString() + " " +"\n\n");
+                        tList.append("Blood Pressure: " + vitals.get("bloodPressure").toString()
+                                + "\nGlucose:" + " " + vitals.get("glucose").toString() + " "
+                                + "\nCholesterol: " + vitals.get("cholesterol").toString() + " " + "\n\n");
                     }
                 }
             }
@@ -93,7 +91,12 @@ public class VitalsActivity extends AppCompatActivity implements View.OnClickLis
                 vitals.put("cholesterol", etCholesterol.getText().toString());
 
 
-                vitals.saveInBackground();
+                //vitals.saveInBackground();
+                try {
+                    vitals.save();
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
 
                 loadVitals();
 

@@ -11,14 +11,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.parse.FindCallback;
-import com.parse.ParseException;
 import com.parse.ParseObject;
-import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
-import com.parse.ParseUser;
-
-import java.util.List;
 
 import phms.main.Models.NoteAdapter;
 import phms.main.R;
@@ -38,7 +32,7 @@ public class NotePadActivity extends AppCompatActivity {
     TextView tvNotes;
     /* !! PARSE !! */
     private ParseQueryAdapter<ParseObject> mainAdapter;
-    //private NoteAdapter noteAdapter;
+    private NoteAdapter noteAdapter;
     private ListView listView;
 
     @Override
@@ -62,7 +56,7 @@ public class NotePadActivity extends AppCompatActivity {
         //mainAdapter.setImageKey("image");
 
 
-        //noteAdapter = new NoteAdapter(this);
+        noteAdapter = new NoteAdapter(this);
         //noteAdapter.setTextKey("title");
 
         // /* !! PARSE !! */ Initialize ListView and set initial view to mainAdapter
@@ -71,7 +65,7 @@ public class NotePadActivity extends AppCompatActivity {
         /* noteAdapter */
 //        listView.setAdapter(noteAdapter);
 //        noteAdapter.loadObjects();
-        //noteAdapter.setAutoload(true);
+//        noteAdapter.setAutoload(true);
 
         /* mainAdapter */
         listView.setAdapter(mainAdapter);
@@ -104,6 +98,7 @@ public class NotePadActivity extends AppCompatActivity {
 //                    mainAdapter.loadObjects();
 //
 //                }
+//
 //            }
 //        });
 

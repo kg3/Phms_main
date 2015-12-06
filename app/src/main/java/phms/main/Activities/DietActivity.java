@@ -1,15 +1,11 @@
 package phms.main.Activities;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.parse.FindCallback;
@@ -30,8 +26,6 @@ public class DietActivity extends AppCompatActivity implements View.OnClickListe
         - weight
      */
 
-
-
     EditText etCalorieCount, etFoodIntake, etWeight;
     Button bDiet;
     TextView etTotal;
@@ -39,7 +33,7 @@ public class DietActivity extends AppCompatActivity implements View.OnClickListe
 
     Integer sum=0;
 
-    ImageView img;
+    // ImageView img;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,9 +52,9 @@ public class DietActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 */
-        img = (ImageView) findViewById(R.id.img);
+        // img = (ImageView) findViewById(R.id.img);
 
-        //img.setImageResource(R.drawable.diet);
+        // img.setImageResource(R.drawable.diet);
 
         etFoodIntake = (EditText)findViewById(R.id.etFoodIntake);
         etCalorieCount = (EditText)findViewById(R.id.etCalorieCount);
@@ -69,16 +63,17 @@ public class DietActivity extends AppCompatActivity implements View.OnClickListe
         etTotal=(TextView)findViewById(R.id.etTotal);
         tList = (TextView)findViewById(R.id.tList);
 
-
-        loadDiet();
-
         bDiet = (Button) findViewById(R.id.bDiet);
         bDiet.setOnClickListener(this);
+
+        loadDiet();
     }
 
     public void loadDiet() {
         ParseQuery<ParseObject> query = ParseQuery.getQuery("diet");
         query.whereEqualTo("author", ParseUser.getCurrentUser());
+
+        query.orderByDescending("createdAt");
 
         query.findInBackground(new FindCallback<ParseObject>() {
             public void done(List<ParseObject> allDiet, ParseException e) {
@@ -88,9 +83,11 @@ public class DietActivity extends AppCompatActivity implements View.OnClickListe
                     tList.setText("");
                     for (ParseObject diet : allDiet) {
                         sum = sum + Integer.parseInt(diet.get("calorieCount").toString());
-                        tList.append("Food Intake: "+diet.get("foodIntake").toString() + "\nCalorie Count:" + " " + diet.get("calorieCount").toString() + " " + "\nWeight: " + diet.get("weight").toString() + " " +"\n\n");
+                        tList.append("Food Intake: "+diet.get("foodIntake").toString() + "\nCalorie Count:" + " "
+                                + diet.get("calorieCount").toString()
+                                + " " + "\nWeight: " + diet.get("weight").toString() + " " +"\n\n");
                     }
-                    etTotal.setText("Total: "+Integer.toString(sum));
+                    etTotal.setText("Total: " + Integer.toString(sum));
                     sum=0;
                 }
 
@@ -114,7 +111,13 @@ public class DietActivity extends AppCompatActivity implements View.OnClickListe
                 diet.put("weight", etWeight.getText().toString());
 
 
-                diet.saveInBackground();
+                try {
+                    diet.save();
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
+                //diet.saveInBackground();
 
                 loadDiet();
 

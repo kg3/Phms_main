@@ -6,10 +6,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 
+import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
 
-import phms.main.Models.Note;
 import phms.main.R;
 
 /**
@@ -71,7 +71,13 @@ public class NewNoteActivity extends AppCompatActivity {
         note.put("note", etNote.getText().toString());
         note.put("bothTitleAndNote", etTitle.getText().toString() + "  --  " + etNote.getText().toString());
 
-        note.saveInBackground();
+//        note.saveInBackground();
+
+        try {
+            note.save();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
 
         //Finish and let previous activity know we created
         setResult(NotePadActivity.ACTION_CREATE);

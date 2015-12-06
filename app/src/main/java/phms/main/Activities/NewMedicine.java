@@ -2,16 +2,14 @@ package phms.main.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.CalendarContract;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
 
@@ -67,7 +65,7 @@ public class NewMedicine extends AppCompatActivity implements View.OnClickListen
             case R.id.SavingMedication:
                 saveToParse();
                 Toast.makeText(getBaseContext(), "Medication Saved", Toast.LENGTH_SHORT).show();
-                Intent menu = new Intent(this, MenuMain.class);
+                Intent menu = new Intent(this, MedicineActivity.class);
                 startActivity(menu);
                 return;
 
@@ -91,7 +89,13 @@ public class NewMedicine extends AppCompatActivity implements View.OnClickListen
         MedicationEntry.put("frequency", etFrequency.getText().toString());
         MedicationEntry.put("medicineConflicts", etMedicationConflict.getText().toString());
 
-        MedicationEntry.saveInBackground();
+        //MedicationEntry.saveInBackground();
+
+        try {
+            MedicationEntry.save();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
 
         finish();
     }

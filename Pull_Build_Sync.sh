@@ -1,20 +1,16 @@
-#!/bin/sh
+#!/bin/bash
 
-#  Pull_Build_Sync.sh
-#  
-#
-#  Created by k3 on 12/5/15.
-#
-
-PROEJCT=~/AndroidStudioProjects/Phms_main
-APKS=app/build/outputs/apk/
-SYNC="/Users/k3/Google Drive/SFTWRE ENGENG/Apk/"
-
+sleep 1
 git pull
 
+sleep 1
 ./gradlew assembleDebug
 
+sleep 1
+cp app/build/outputs/apk/*.apk ~/Google\ Drive/SFTWRE\ ENGENG/Apk/
 
-cp $APKS/*.apk /Users/k3/Google\ Drive/SFTWRE\ ENGENG/Apk/
+ls -alh app/build/outputs/apk/
+
+
 
 exit 0

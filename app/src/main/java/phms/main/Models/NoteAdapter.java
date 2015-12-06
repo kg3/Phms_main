@@ -31,7 +31,7 @@ public class NoteAdapter extends ParseQueryAdapter<ParseObject> {
     @Override
     public View getItemView(ParseObject object, View v, ViewGroup parent) {
         if (v == null) {
-            v = View.inflate(getContext(), R.layout.custom_list_item, null);
+            v = View.inflate(getContext(), R.layout.list_item, null);
         }
 
         super.getItemView(object, v, parent);
