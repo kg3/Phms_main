@@ -38,7 +38,7 @@ public class NotePadActivity extends AppCompatActivity {
     TextView tvNotes;
     /* !! PARSE !! */
     private ParseQueryAdapter<ParseObject> mainAdapter;
-    private NoteAdapter noteAdapter;
+    //private NoteAdapter noteAdapter;
     private ListView listView;
 
     @Override
@@ -57,11 +57,12 @@ public class NotePadActivity extends AppCompatActivity {
 
         // /* !! PARSE !! */ Initialize main ParseQueryAdapter
         mainAdapter = new ParseQueryAdapter<ParseObject>(this, "note");
-        mainAdapter.setTextKey("title");
+        mainAdapter.setTextKey("bothTitleAndNote");
         //mainAdapter.setTextKey("note");
         //mainAdapter.setImageKey("image");
 
-        noteAdapter = new NoteAdapter(this);
+
+        //noteAdapter = new NoteAdapter(this);
         //noteAdapter.setTextKey("title");
 
         // /* !! PARSE !! */ Initialize ListView and set initial view to mainAdapter
@@ -70,12 +71,13 @@ public class NotePadActivity extends AppCompatActivity {
         /* noteAdapter */
 //        listView.setAdapter(noteAdapter);
 //        noteAdapter.loadObjects();
-        noteAdapter.setAutoload(true);
+        //noteAdapter.setAutoload(true);
 
         /* mainAdapter */
         listView.setAdapter(mainAdapter);
         mainAdapter.loadObjects();
         mainAdapter.setAutoload(true);
+
 
         /* Button for Making a Note */
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -88,22 +90,22 @@ public class NotePadActivity extends AppCompatActivity {
         });
 
         /* float_button to toggle different views */
-        FloatingActionButton fab2 = (FloatingActionButton) findViewById(R.id.fab2);
-        fab2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                /* attempting to load custom adapter in view */
-                if (listView.getAdapter() == mainAdapter) {
-                    listView.setAdapter(noteAdapter);
-                    noteAdapter.loadObjects();
-
-                } else {
-                    listView.setAdapter(mainAdapter);
-                    mainAdapter.loadObjects();
-
-                }
-            }
-        });
+//        FloatingActionButton fab2 = (FloatingActionButton) findViewById(R.id.fab2);
+//        fab2.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                /* attempting to load custom adapter in view */
+//                if (listView.getAdapter() == mainAdapter) {
+//                    listView.setAdapter(noteAdapter);
+//                    noteAdapter.loadObjects();
+//
+//                } else {
+//                    listView.setAdapter(mainAdapter);
+//                    mainAdapter.loadObjects();
+//
+//                }
+//            }
+//        });
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -162,29 +164,29 @@ public class NotePadActivity extends AppCompatActivity {
     }
 
 
-    private void loadFromParse() {
-
-        ParseQuery<ParseObject> query = ParseQuery.getQuery("note");
-        query.whereEqualTo("author", ParseUser.getCurrentUser());
-
-        /* update your code with this line */
-        query.orderByDescending("createdAt");
-
-        query.findInBackground(new FindCallback<ParseObject>() {
-            public void done(List<ParseObject> allNotes, ParseException e) {
-
-                if (!allNotes.isEmpty()) {
-                    tvNotes.setText("");
-                    for (ParseObject _note : allNotes) {
-
-
-                        tvNotes.append("* " + _note.get("title").toString() + " # " + _note.get("note").toString() + "\n\n");
-                    }
-                }
-            }
-        });
-
-    }
+//    private void loadFromParse() {
+//
+//        ParseQuery<ParseObject> query = ParseQuery.getQuery("note");
+//        query.whereEqualTo("author", ParseUser.getCurrentUser());
+//
+//        /* update your code with this line */
+//        query.orderByDescending("createdAt");
+//
+//        query.findInBackground(new FindCallback<ParseObject>() {
+//            public void done(List<ParseObject> allNotes, ParseException e) {
+//
+//                if (!allNotes.isEmpty()) {
+//                    tvNotes.setText("");
+//                    for (ParseObject _note : allNotes) {
+//
+//
+//                        tvNotes.append("* " + _note.get("title").toString() + " # " + _note.get("note").toString() + "\n\n");
+//                    }
+//                }
+//            }
+//        });
+//
+//    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -196,7 +198,7 @@ public class NotePadActivity extends AppCompatActivity {
             if (resultCode == ACTION_CREATE) {
                 Toast.makeText(getBaseContext(), "Note Added", Toast.LENGTH_SHORT).show();
                 //loadFromParse();
-                noteAdapter.loadObjects();
+                //noteAdapter.loadObjects();
                 mainAdapter.loadObjects();
             }
 

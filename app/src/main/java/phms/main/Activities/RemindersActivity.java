@@ -163,8 +163,6 @@ public class RemindersActivity extends Activity implements OnClickListener {
         Uri ringtoneUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
         Ringtone ringtoneSound = RingtoneManager.getRingtone(getApplicationContext(), ringtoneUri);
 
-        //    ringtoneSound.wait(time);
-          //  ringtoneSound.notify();
             //ringtoneSound.play();
 
     }
