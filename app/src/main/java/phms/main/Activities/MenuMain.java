@@ -4,7 +4,6 @@ package phms.main.Activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -94,8 +93,10 @@ public class MenuMain extends AppCompatActivity implements View.OnClickListener 
                 break;
 
             case R.id.reminders:
-                Intent remindersIntent = new Intent(this, RemindersActivity.class);
-                startActivity(remindersIntent);
+                Intent launchClock = getPackageManager().getLaunchIntentForPackage("com.android.deskclock");
+                startActivity(launchClock);
+//                Intent remindersIntent = new Intent(this, RemindersActivity.class);
+//                startActivity(remindersIntent);
                 break;
         }
     }

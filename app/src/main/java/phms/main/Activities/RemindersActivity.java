@@ -4,12 +4,7 @@ import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
-import android.media.Ringtone;
-import android.media.RingtoneManager;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.view.View;
@@ -19,7 +14,6 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TimePicker;
-import android.widget.Toast;
 
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -149,21 +143,24 @@ public class RemindersActivity extends Activity implements OnClickListener {
     }
 
     private void setup() {
-        br = new BroadcastReceiver() {
-            @Override
-            public void onReceive(Context c, Intent i) {
-                Toast.makeText(c, etReminder.getText().toString(), Toast.LENGTH_LONG).show();
-            }
-        };
 
-        final long time = 1000 * pickerTime.getCurrentHour() + 1000*pickerTime.getCurrentMinute();
-        registerReceiver(br, new IntentFilter("com.authorwjf.wakeywakey") );
-        pi = PendingIntent.getBroadcast( this, 0, new Intent("com.authorwjf.wakeywakey"),
-                0 );
-        am = (AlarmManager)(this.getSystemService( Context.ALARM_SERVICE ));
-
-        Uri ringtoneUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
-        Ringtone ringtoneSound = RingtoneManager.getRingtone(getApplicationContext(), ringtoneUri);
+        Intent launchClock = getPackageManager().getLaunchIntentForPackage("com.android.deskclock");
+        startActivity(launchClock);
+//        br = new BroadcastReceiver() {
+//            @Override
+//            public void onReceive(Context c, Intent i) {
+//                Toast.makeText(c, etReminder.getText().toString(), Toast.LENGTH_LONG).show();
+//            }
+//        };
+//
+//        final long time = 1000 * pickerTime.getCurrentHour() + 1000*pickerTime.getCurrentMinute();
+//        registerReceiver(br, new IntentFilter("com.authorwjf.wakeywakey") );
+//        pi = PendingIntent.getBroadcast( this, 0, new Intent("com.authorwjf.wakeywakey"),
+//                0 );
+//        am = (AlarmManager)(this.getSystemService( Context.ALARM_SERVICE ));
+//
+//        Uri ringtoneUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
+//        Ringtone ringtoneSound = RingtoneManager.getRingtone(getApplicationContext(), ringtoneUri);
 
             //ringtoneSound.play();
 
