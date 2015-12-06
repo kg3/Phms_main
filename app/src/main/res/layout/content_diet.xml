@@ -20,27 +20,30 @@
         android:orientation="vertical"
         android:padding="40dp">
 
-        <ImageView android:id="@+id/img"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:scaleType="fitCenter">
-        </ImageView>
+        <!--<ImageView android:id="@+id/img"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:scaleType="fitCenter">-->
+        <!--</ImageView>-->
 
 
     <EditText
         android:id="@+id/etFoodIntake"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_margin = "5dp"
+        android:layout_height="40dp"
         android:hint="Food Intake"
+        android:background="@drawable/text_box_rounded"
         android:textSize="20sp"/>
 
 
     <EditText
         android:id="@+id/etCalorieCount"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_margin = "5dp"
         android:hint="Calorie Count"
+        android:background="@drawable/text_box_rounded"
         android:inputType="number"
         android:textSize="20sp"/>
 
@@ -48,9 +51,10 @@
     <EditText
         android:id="@+id/etWeight"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_margin = "5dp"
         android:hint="Weight"
+        android:background="@drawable/text_box_rounded"
         android:inputType="numberDecimal"
         android:textSize="20sp"/>
 

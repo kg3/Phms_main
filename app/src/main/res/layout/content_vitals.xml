@@ -10,8 +10,7 @@
 
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        >
+        android:layout_height="fill_parent">
 
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -30,8 +29,8 @@
         android:layout_height="40dp"
         android:hint=" Enter blood pressure"
         android:layout_margin = "5dp"
-        android:textSize="20sp"/>
-        <!--android:background="@drawable/text_box_rounded"/>-->
+        android:textSize="20sp"
+        android:background="@drawable/text_box_rounded"/>
 
 
     <EditText
@@ -41,8 +40,8 @@
         android:layout_height="40dp"
         android:hint=" Enter glucose level"
         android:layout_margin = "5dp"
-        android:textSize="20sp"/>
-        <!--android:background="@drawable/text_box_rounded"/>-->
+        android:textSize="20sp"
+        android:background="@drawable/text_box_rounded"/>
 
     <EditText
         android:id="@+id/etCholesterol"
@@ -51,8 +50,8 @@
         android:layout_height="40dp"
         android:hint=" Enter cholesterol level"
         android:layout_margin = "5dp"
-        android:textSize="20sp"/>
-        <!--android:background="@drawable/text_box_rounded"/>-->
+        android:textSize="20sp"
+        android:background="@drawable/text_box_rounded"/>
     <Button
         android:background="@drawable/button_3d"
         android:id="@+id/bVital"

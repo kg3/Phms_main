@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.parse.ParseUser;
 
@@ -18,6 +19,7 @@ import phms.main.R;
 
 public class MenuMain extends AppCompatActivity implements View.OnClickListener {
 
+    ImageView img;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +29,9 @@ public class MenuMain extends AppCompatActivity implements View.OnClickListener 
         setSupportActionBar(toolbar);
 
 
+        //img = (ImageView) findViewById(R.id.img);
+
+        //img.setImageResource(R.drawable.fitness);
 
 
         Button diet = (Button) findViewById(R.id.diet);
