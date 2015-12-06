@@ -33,7 +33,7 @@ public class MenuMain extends AppCompatActivity implements View.OnClickListener 
         Button medicine = (Button) findViewById(R.id.medicine);
         Button notes = (Button) findViewById(R.id.notes);
         Button communication = (Button) findViewById(R.id.communication);
-        Button search = (Button) findViewById(R.id.search);
+//        Button search = (Button) findViewById(R.id.search);
         Button vital_signs = (Button) findViewById(R.id.vital_signs);
         Button reminders = (Button) findViewById(R.id.reminders);
 
@@ -41,7 +41,7 @@ public class MenuMain extends AppCompatActivity implements View.OnClickListener 
         medicine.setOnClickListener(this);
         notes.setOnClickListener(this);
         communication.setOnClickListener(this);
-        search.setOnClickListener(this);
+        //search.setOnClickListener(this);
         vital_signs.setOnClickListener(this);
         reminders.setOnClickListener(this);
 
@@ -77,10 +77,11 @@ public class MenuMain extends AppCompatActivity implements View.OnClickListener 
                 Intent communicationIntent = new Intent(this, CommunicationActivity.class);
                 startActivity(communicationIntent);
                 break;
-            case R.id.search:
-                Intent searchIntent = new Intent(this, SearchActivity.class);
-                startActivity(searchIntent);
-                break;
+
+//            case R.id.search:
+//                Intent searchIntent = new Intent(this, SearchActivity.class);
+//                startActivity(searchIntent);
+//                break;
 
             case R.id.vital_signs:
                 Intent vital_signsIntent = new Intent(this, VitalsActivity.class);

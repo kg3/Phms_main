@@ -60,7 +60,7 @@ public class DietActivity extends AppCompatActivity implements View.OnClickListe
 */
         img = (ImageView) findViewById(R.id.img);
 
-        img.setImageResource(R.drawable.diet);
+        //img.setImageResource(R.drawable.diet);
 
         etFoodIntake = (EditText)findViewById(R.id.etFoodIntake);
         etCalorieCount = (EditText)findViewById(R.id.etCalorieCount);

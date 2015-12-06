@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="@dimen/activity_horizontal_margin">
+    android:padding="@dimen/activity_horizontal_margin"
+    android:background="@color/pink">
 
     <!--Kurt asked me to put notes in here-->
     <android.support.design.widget.TextInputLayout
@@ -13,9 +14,10 @@
         <EditText
             android:id="@+id/etTitle"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:hint="Note title"
-            android:inputType="text" />
+            android:inputType="text"
+            android:background="@drawable/text_box_rounded"/>
 
     </android.support.design.widget.TextInputLayout>
 
@@ -30,7 +32,8 @@
             android:layout_marginTop="@dimen/widget_margin"
             android:hint="Health Related Notes"
             android:inputType="textMultiLine"
-            android:minLines="3" />
+            android:minLines="3"
+            android:background="@drawable/text_box_rounded"/>
 
     </android.support.design.widget.TextInputLayout>
 
