@@ -154,7 +154,7 @@ public class CommunicationActivity extends AppCompatActivity implements View.OnC
                 Intent eEmail = new Intent(Intent.ACTION_SEND);
                 eEmail.putExtra(Intent.EXTRA_EMAIL  , etEmergencyEmailArray);
                 eEmail.putExtra(Intent.EXTRA_SUBJECT, "Medical Contact.");
-                eEmail.putExtra(Intent.EXTRA_TEXT   , "Dear .....");  // add name later from contacts
+                eEmail.putExtra(Intent.EXTRA_TEXT   , "Dear ..... ");  // add name later from contacts
                 eEmail.setType("message/rfc822");
                 startActivity(Intent.createChooser(eEmail,  "Choose an Email client :"));
 

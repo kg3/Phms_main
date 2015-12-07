@@ -97,27 +97,27 @@ public class MenuMain extends AppCompatActivity implements View.OnClickListener 
 
             case R.id.reminders:
 
-                PackageManager packageManager = this.getPackageManager();
-                if (packageManager != null) {
-
-                    Intent AlarmClockIntent =
-                            new Intent(Intent.ACTION_MAIN).addCategory(
-                                    Intent.CATEGORY_LAUNCHER).setComponent(
-                                    new ComponentName("com.android.deskclock", "com.android.deskclock.DeskClock"));
-
-                    ResolveInfo resolved = packageManager.resolveActivity(AlarmClockIntent, PackageManager.MATCH_DEFAULT_ONLY);
-                    if (resolved != null) {
-                        startActivity(AlarmClockIntent);
-                        //finish();
-                        return;
-                    } else {
-                        // required activity can not be located!
-                    }
-                }
+//                PackageManager packageManager = this.getPackageManager();
+//                if (packageManager != null) {
+//
+//                    Intent AlarmClockIntent =
+//                            new Intent(Intent.ACTION_MAIN).addCategory(
+//                                    Intent.CATEGORY_LAUNCHER).setComponent(
+//                                    new ComponentName("com.android.deskclock", "com.android.deskclock.DeskClock"));
+//
+//                    ResolveInfo resolved = packageManager.resolveActivity(AlarmClockIntent, PackageManager.MATCH_DEFAULT_ONLY);
+//                    if (resolved != null) {
+//                        startActivity(AlarmClockIntent);
+//                        //finish();
+//                        return;
+//                    } else {
+//                        // required activity can not be located!
+//                    }
+//                }
 //                Intent launchClock = getPackageManager().getLaunchIntentForPackage("com.android.deskclock");
 //                startActivity(launchClock);
-//                Intent remindersIntent = new Intent(this, RemindersActivity.class);
-//                startActivity(remindersIntent);
+                Intent remindersIntent = new Intent(this, RemindersActivity.class);
+                startActivity(remindersIntent);
                 break;
         }
     }
