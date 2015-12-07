@@ -29,7 +29,8 @@ public class CommunicationActivity extends AppCompatActivity implements View.OnC
 
     Button bCall, bText, bEmail, bEmergencyCall, bEmergencyText, bEmergencyEmail;
 
-    String etCall, etText, etEmail, etEmergencyEmail, etEmergencyCall, etEmergencyText;
+    String etCall, etText, etEmail, etEmergencyEmail, etEmergencyCall, etEmergencyText, e;
+    String[] etEmailArray, etEmergencyEmailArray;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +55,10 @@ public class CommunicationActivity extends AppCompatActivity implements View.OnC
         etEmergencyCall = user.get("emergencyContactPhone").toString();
         etEmergencyEmail = user.get("emergencyContactEmail").toString();
         etEmergencyText = user.get("emergencyContactPhone").toString();
+
+        etEmailArray = new String[]{etEmail};
+        etEmergencyEmailArray = new String[]{etEmergencyEmail};
+
 
         bText = (Button)findViewById(R.id.bText);
         bText.setOnClickListener(this);
@@ -83,7 +88,7 @@ public class CommunicationActivity extends AppCompatActivity implements View.OnC
             case R.id.bEmail:
 
                 Intent email = new Intent(Intent.ACTION_SEND);
-                email.putExtra(Intent.EXTRA_EMAIL  , etEmail);
+                email.putExtra(Intent.EXTRA_EMAIL  , etEmailArray);
                 email.putExtra(Intent.EXTRA_SUBJECT, "Medical Contact.");
                 email.putExtra(Intent.EXTRA_TEXT   , "Dear .....");  // add name later from contacts
                 email.setType("message/rfc822");
@@ -147,7 +152,7 @@ public class CommunicationActivity extends AppCompatActivity implements View.OnC
 
             case R.id.bEmergencyEmail:
                 Intent eEmail = new Intent(Intent.ACTION_SEND);
-                eEmail.putExtra(Intent.EXTRA_EMAIL  , etEmergencyEmail);
+                eEmail.putExtra(Intent.EXTRA_EMAIL  , etEmergencyEmailArray);
                 eEmail.putExtra(Intent.EXTRA_SUBJECT, "Medical Contact.");
                 eEmail.putExtra(Intent.EXTRA_TEXT   , "Dear .....");  // add name later from contacts
                 eEmail.setType("message/rfc822");

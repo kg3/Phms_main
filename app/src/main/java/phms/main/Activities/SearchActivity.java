@@ -51,7 +51,7 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
         tList = (TextView) findViewById(R.id.tList);
 
         dropdown = (Spinner)findViewById(R.id.spinner1);
-        String[] items = new String[]{"All", "Diet", "Medicine", "Notes", "Reminders", "People"};
+        String[] items = new String[]{"All", "Diet", "Medicine", "Notes", "People"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
         dropdown.setAdapter(adapter);
 
