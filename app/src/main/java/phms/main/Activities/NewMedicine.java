@@ -76,25 +76,25 @@ public class NewMedicine extends AppCompatActivity implements View.OnClickListen
                 Toast.makeText(getBaseContext(), "Lets create a reminder", Toast.LENGTH_SHORT).show();
                 saveToParse();
 
-//                Intent reminder = new Intent(this, RemindersActivity.class);
-//                startActivity(reminder);
-                PackageManager packageManager = this.getPackageManager();
-                if (packageManager != null) {
-
-                    Intent AlarmClockIntent =
-                            new Intent(Intent.ACTION_MAIN).addCategory(
-                                    Intent.CATEGORY_LAUNCHER).setComponent(
-                                    new ComponentName("com.android.deskclock", "com.android.deskclock.DeskClock"));
-
-                    ResolveInfo resolved = packageManager.resolveActivity(AlarmClockIntent, PackageManager.MATCH_DEFAULT_ONLY);
-                    if (resolved != null) {
-                        startActivity(AlarmClockIntent);
-                        //finish();
-                        return;
-                    } else {
-                        // required activity can not be located!
-                    }
-                }
+                Intent reminder = new Intent(this, RemindersActivity.class);
+                startActivity(reminder);
+//                PackageManager packageManager = this.getPackageManager();
+//                if (packageManager != null) {
+//
+//                    Intent AlarmClockIntent =
+//                            new Intent(Intent.ACTION_MAIN).addCategory(
+//                                    Intent.CATEGORY_LAUNCHER).setComponent(
+//                                    new ComponentName("com.android.deskclock", "com.android.deskclock.DeskClock"));
+//
+//                    ResolveInfo resolved = packageManager.resolveActivity(AlarmClockIntent, PackageManager.MATCH_DEFAULT_ONLY);
+//                    if (resolved != null) {
+//                        startActivity(AlarmClockIntent);
+//                        //finish();
+//                        return;
+//                    } else {
+//                        // required activity can not be located!
+//                    }
+//                }
 
         }
 
