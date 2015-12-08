@@ -38,7 +38,7 @@ public class RemindersActivity extends Activity implements OnClickListener {
 
     DatePicker pickerDate;
     TimePicker pickerTime;
-    Button readPicker;
+    Button readPicker, calendarButton;
     EditText etReminder;
     TextView info;
 
@@ -92,7 +92,8 @@ public class RemindersActivity extends Activity implements OnClickListener {
 
         readPicker = (Button) findViewById(R.id.readpicker);
         readPicker.setOnClickListener(this);
-
+        calendarButton = (Button) findViewById(R.id.calendarbutton);
+        calendarButton.setOnClickListener(this);
     }
 
     public void loadReminders() {
@@ -116,6 +117,7 @@ public class RemindersActivity extends Activity implements OnClickListener {
 
     @Override
     public void onClick(View view) {
+
 
         switch (view.getId()) {
             case R.id.readpicker:
@@ -151,6 +153,24 @@ public class RemindersActivity extends Activity implements OnClickListener {
                 am.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() + time, pi);
 
                 loadReminders();
+                break;
+
+            case R.id.calendarbutton:
+
+                Calendar calendar = Calendar.getInstance();
+                calendar.set(pickerDate.getYear(), pickerDate.getMonth(), pickerDate.getDayOfMonth(),
+                        pickerTime.getCurrentHour(), pickerTime.getCurrentMinute(), 0);
+                long startTime = calendar.getTimeInMillis();
+
+                Intent intent = new Intent(Intent.ACTION_EDIT);
+                intent.setType("vnd.android.cursor.item/event");
+                intent.putExtra("beginTime", startTime);
+                intent.putExtra("allDay", false);
+                intent.putExtra("rrule", "FREQ=DAILY");
+                intent.putExtra("endTime", startTime);
+                intent.putExtra("title", etReminder.getText().toString());
+                startActivity(intent);
+
                 break;
         }
     }

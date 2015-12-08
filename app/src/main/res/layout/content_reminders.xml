@@ -54,7 +54,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/button_3d"
-            android:text="Set Reminder" />
+            android:text="Save Alarm" />
+
+        <Button
+            android:id="@+id/calendarbutton"
+            style="@style/button_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_3d"
+            android:text="Save date" />
 
         <TextView
             android:id="@+id/tList"
