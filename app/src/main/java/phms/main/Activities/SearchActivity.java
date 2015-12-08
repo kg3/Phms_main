@@ -51,7 +51,7 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
         tList = (TextView) findViewById(R.id.tList);
 
         dropdown = (Spinner)findViewById(R.id.spinner1);
-        String[] items = new String[]{"All", "Diet", "Medicine", "Notes", "People"};
+        String[] items = new String[]{"All", "Diet", "Notes", "People"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
         dropdown.setAdapter(adapter);
 
@@ -130,22 +130,22 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
                     });
                 }
 
-                if(category.equals("All") || category.equals("Reminders")){
-                    ParseQuery<ParseObject> query = ParseQuery.getQuery("reminder");
-                    query.whereEqualTo("author", ParseUser.getCurrentUser());
-                    query.orderByDescending("createdAt");
-                    query.whereContains("eventsTitle", etSearch.getText().toString());
-                    query.findInBackground(new FindCallback<ParseObject>() {
-                        public void done(List<ParseObject> allReminders, ParseException e) {
-                            if (allReminders.size() > 0) {
-                                tList.append("Reminders:\n");
-                                for (ParseObject reminder : allReminders) {
-                                    tList.append("  " + reminder.get("eventsTitle").toString() + " " + reminder.get("year") + " " + reminder.get("month") + " " + reminder.get("day") + " " + reminder.get("hour") + " " + reminder.get("minute") + " " + "\n");
-                                }
-                            }
-                        }
-                    });
-                }
+//                if(category.equals("All") || category.equals("Reminders")){
+//                    ParseQuery<ParseObject> query = ParseQuery.getQuery("reminder");
+//                    query.whereEqualTo("author", ParseUser.getCurrentUser());
+//                    query.orderByDescending("createdAt");
+//                    query.whereContains("eventsTitle", etSearch.getText().toString());
+//                    query.findInBackground(new FindCallback<ParseObject>() {
+//                        public void done(List<ParseObject> allReminders, ParseException e) {
+//                            if (allReminders.size() > 0) {
+//                                tList.append("Reminders:\n");
+//                                for (ParseObject reminder : allReminders) {
+//                                    tList.append("  " + reminder.get("eventsTitle").toString() + " " + reminder.get("year") + " " + reminder.get("month") + " " + reminder.get("day") + " " + reminder.get("hour") + " " + reminder.get("minute") + " " + "\n");
+//                                }
+//                            }
+//                        }
+//                    });
+//                }
 
                 if(category.equals("All") || category.equals("People")) {
                     ParseUser user = ParseUser.getCurrentUser();

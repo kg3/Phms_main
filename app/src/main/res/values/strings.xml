@@ -1,13 +1,13 @@
 <resources>
     <string name="app_name">PHMS</string>
     <string name="action_settings">General</string>
-    <string name="title_activity_communication">CommunicationActivity</string>
-    <string name="title_activity_diet">DietActivity</string>
-    <string name="title_activity_medicine">Medicines</string>
-    <string name="title_activity_search">SearchActivity</string>
-    <string name="title_activity_MainMenu">MainMenu</string>
-    <string name="title_activity_vitals">VitalsActivity</string>
-    <string name="title_activity_reminders">RemindersActivity</string>
+    <string name="title_activity_communication">Communication</string>
+    <string name="title_activity_diet">Diet</string>
+    <string name="title_activity_medicine">Medicine</string>
+    <string name="title_activity_search">Search</string>
+    <string name="title_activity_MainMenu">Main Menu</string>
+    <string name="title_activity_vitals">Vitals</string>
+    <string name="title_activity_reminders">Reminders</string>
     <string name="title_activity_notepad">NotePad</string>
     <string name="title_activity_new_medicine">Add Medicine</string>
     <color name="pink">#FCDFFF</color>
