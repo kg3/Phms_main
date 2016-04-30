@@ -1,6 +1,7 @@
 Personal Health Management System
 
 Develop an android application to help users maintain various personal health-related data. This application will be used for keeping track of one’s vital signs, daily medicine intake, or following a diet regiment. The system should minimally include:
+  
   1.Registration: Enter personal information such as name, gender, age, weight, height, doctor’s name, doctor visit dates, annual checkups, etc.
   2. Vital signs: Registering vital signs (e.g. blood pressure, glucose level, Cholesterol, …)
   3. Medication: Medication the patient is taking and time to take it, include a notification/alarm system for taking medication
